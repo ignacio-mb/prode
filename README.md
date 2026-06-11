@@ -121,37 +121,49 @@ See [`.env.example`](.env.example). Summary:
 Re-seeding is **safe**: it never overwrites entered scores, match status, or the
 scoring settings — so a redeploy won't clobber an in-progress tournament.
 
-## Deploy to Render (public access)
+## Deploy to Render + Supabase (public access)
 
-This repo ships a [`render.yaml`](render.yaml) Blueprint that provisions a
-managed Postgres **and** the web service.
+The database is **Supabase** (free tier persists data — no 30-day deletion like
+Render's free Postgres), and the web service runs on **Render** via the
+[`render.yaml`](render.yaml) Blueprint.
 
+**Database (Supabase):**
+1. Create a Supabase project.
+2. **Project → Connect → Session pooler** and copy the connection string
+   (host `…pooler.supabase.com`, port `5432`). Use the *pooler*, not the direct
+   host — Render can't reach Supabase's IPv6-only direct connection, and the
+   pooler also works for migrations.
+
+**Web service (Render):**
 1. Push this repo to GitHub.
-2. In Render: **New → Blueprint**, point it at your repo. It reads `render.yaml`.
-3. Set the two `sync: false` env vars in the dashboard:
-   - `ADMIN_NAMES` — your admin display name(s).
-   - `NEXT_PUBLIC_APP_URL` — your `https://<service>.onrender.com` URL (after the
-     first deploy assigns one).
-   - `SESSION_SECRET` is auto-generated; `DATABASE_URL` is wired to the managed
-     DB automatically.
+2. In Render: **New → Blueprint**, point it at your repo (`render.yaml`).
+3. Set the `sync: false` env vars when prompted:
+   - `DATABASE_URL` — the Supabase **Session pooler** string (with your real DB
+     password; SSL auto-enables for supabase hosts).
+   - `ADMIN_NAMES` — extra admins (optional; `nacho` is a built-in admin).
+   - `NEXT_PUBLIC_APP_URL` — your `https://<service>.onrender.com` URL.
+   - `SESSION_SECRET` is auto-generated.
 4. Deploy. Render's **free tier doesn't support `preDeployCommand`**, so
    migrations + the idempotent seed run at the start of the `startCommand`
    (`npm run db:migrate && npm run db:seed && npm run start`) — safe to repeat on
    every boot. Health check: `/api/health`.
 
 > Notes
-> - Uses Render's **internal** DB connection (no SSL flag needed). For an
->   external DB instead, set `DATABASE_SSL=require`.
-> - `NPM_CONFIG_PRODUCTION=false` is set so the build/migrate/seed tooling
->   (`tsx`, `drizzle-kit`) is available on Render.
-> - Render's free Postgres and free web instances sleep when idle — fine for a
->   friends' pool; upgrade plans in `render.yaml` if you want always-on.
+> - **Schema isolation:** all app tables live in a dedicated **`prode`** Postgres
+>   schema (`pgSchema("prode")`), so prode can safely share a Supabase project
+>   with other tables in `public` without collisions.
+> - `src/db/connection.ts` auto-enables SSL for supabase/neon hosts and uses
+>   `prepare:false` for the Supabase pooler.
+> - `NPM_CONFIG_PRODUCTION=false` keeps build/migrate/seed tooling (`tsx`,
+>   `drizzle-kit`) available on Render.
+> - Free Render web instances sleep when idle (slow first request); the Supabase
+>   project pauses only after ~7 days idle and is one click to restore.
 
 ## How it works
 
 - **Auth** (`src/lib/auth.ts`): signing in upserts a user by (case-insensitive)
   name and sets `prode_session` = `userId.HMAC(userId)` as an httpOnly cookie.
-  Admin is granted when the name is in `ADMIN_NAMES`.
+  Admin is granted to the built-in `nacho` and anyone in `ADMIN_NAMES`.
 - **Predictions** (`src/app/actions/predictions.ts`): validated with Zod and
   rejected server-side once `kickoff_at` has passed — the lock can't be bypassed
   by the client.

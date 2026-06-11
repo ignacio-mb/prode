@@ -2,8 +2,7 @@ import {
   boolean,
   index,
   integer,
-  pgEnum,
-  pgTable,
+  pgSchema,
   serial,
   text,
   timestamp,
@@ -11,11 +10,15 @@ import {
 } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
 
+// All app tables live in a dedicated "prode" schema so the app never collides
+// with anything in `public` (handy when sharing a Supabase project).
+export const prode = pgSchema("prode");
+
 // ---------------------------------------------------------------------------
 // Enums
 // ---------------------------------------------------------------------------
 
-export const stageEnum = pgEnum("stage", [
+export const stageEnum = prode.enum("stage", [
   "group",
   "round_of_32",
   "round_of_16",
@@ -25,7 +28,7 @@ export const stageEnum = pgEnum("stage", [
   "final",
 ]);
 
-export const matchStatusEnum = pgEnum("match_status", [
+export const matchStatusEnum = prode.enum("match_status", [
   "scheduled",
   "live",
   "finished",
@@ -38,7 +41,7 @@ export const matchStatusEnum = pgEnum("match_status", [
 // nullable so a PIN can be layered on later without a migration.)
 // ---------------------------------------------------------------------------
 
-export const users = pgTable("users", {
+export const users = prode.table("users", {
   id: serial("id").primaryKey(),
   name: text("name").notNull().unique(),
   pinHash: text("pin_hash"),
@@ -53,7 +56,7 @@ export const users = pgTable("users", {
 // 48 nations. flagEmoji is the country flag; group_letter A–L (12 groups).
 // ---------------------------------------------------------------------------
 
-export const teams = pgTable("teams", {
+export const teams = prode.table("teams", {
   id: serial("id").primaryKey(),
   name: text("name").notNull().unique(),
   fifaCode: text("fifa_code").notNull().unique(), // e.g. "ARG"
@@ -68,7 +71,7 @@ export const teams = pgTable("teams", {
 // resolves and an admin assigns the real teams.
 // ---------------------------------------------------------------------------
 
-export const matches = pgTable(
+export const matches = prode.table(
   "matches",
   {
     id: serial("id").primaryKey(),
@@ -97,7 +100,7 @@ export const matches = pgTable(
 // One row per (user, match). points is null until the match is finalized.
 // ---------------------------------------------------------------------------
 
-export const predictions = pgTable(
+export const predictions = prode.table(
   "predictions",
   {
     id: serial("id").primaryKey(),
@@ -132,7 +135,7 @@ export const predictions = pgTable(
 // Single-row key/value-ish config table for scoring. One row, id = 1.
 // ---------------------------------------------------------------------------
 
-export const settings = pgTable("settings", {
+export const settings = prode.table("settings", {
   id: integer("id").primaryKey().default(1),
   exactPoints: integer("exact_points").notNull().default(3),
   outcomePoints: integer("outcome_points").notNull().default(1),

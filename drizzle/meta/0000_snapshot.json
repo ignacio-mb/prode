@@ -1,12 +1,12 @@
 {
-  "id": "2699cdf6-0f33-4d22-8aa1-41b9b4c94f03",
+  "id": "d2d1582d-a447-4f53-ae65-47fa736195ec",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
-    "public.matches": {
+    "prode.matches": {
       "name": "matches",
-      "schema": "",
+      "schema": "prode",
       "columns": {
         "id": {
           "name": "id",
@@ -23,7 +23,7 @@
         "stage": {
           "name": "stage",
           "type": "stage",
-          "typeSchema": "public",
+          "typeSchema": "prode",
           "primaryKey": false,
           "notNull": true
         },
@@ -72,7 +72,7 @@
         "status": {
           "name": "status",
           "type": "match_status",
-          "typeSchema": "public",
+          "typeSchema": "prode",
           "primaryKey": false,
           "notNull": true,
           "default": "'scheduled'"
@@ -127,6 +127,7 @@
           "name": "matches_home_team_id_teams_id_fk",
           "tableFrom": "matches",
           "tableTo": "teams",
+          "schemaTo": "prode",
           "columnsFrom": [
             "home_team_id"
           ],
@@ -140,6 +141,7 @@
           "name": "matches_away_team_id_teams_id_fk",
           "tableFrom": "matches",
           "tableTo": "teams",
+          "schemaTo": "prode",
           "columnsFrom": [
             "away_team_id"
           ],
@@ -164,9 +166,9 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "public.predictions": {
+    "prode.predictions": {
       "name": "predictions",
-      "schema": "",
+      "schema": "prode",
       "columns": {
         "id": {
           "name": "id",
@@ -256,6 +258,7 @@
           "name": "predictions_user_id_users_id_fk",
           "tableFrom": "predictions",
           "tableTo": "users",
+          "schemaTo": "prode",
           "columnsFrom": [
             "user_id"
           ],
@@ -269,6 +272,7 @@
           "name": "predictions_match_id_matches_id_fk",
           "tableFrom": "predictions",
           "tableTo": "matches",
+          "schemaTo": "prode",
           "columnsFrom": [
             "match_id"
           ],
@@ -294,9 +298,9 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "public.settings": {
+    "prode.settings": {
       "name": "settings",
-      "schema": "",
+      "schema": "prode",
       "columns": {
         "id": {
           "name": "id",
@@ -349,9 +353,9 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "public.teams": {
+    "prode.teams": {
       "name": "teams",
-      "schema": "",
+      "schema": "prode",
       "columns": {
         "id": {
           "name": "id",
@@ -407,9 +411,9 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "public.users": {
+    "prode.users": {
       "name": "users",
-      "schema": "",
+      "schema": "prode",
       "columns": {
         "id": {
           "name": "id",
@@ -462,18 +466,18 @@
     }
   },
   "enums": {
-    "public.match_status": {
+    "prode.match_status": {
       "name": "match_status",
-      "schema": "public",
+      "schema": "prode",
       "values": [
         "scheduled",
         "live",
         "finished"
       ]
     },
-    "public.stage": {
+    "prode.stage": {
       "name": "stage",
-      "schema": "public",
+      "schema": "prode",
       "values": [
         "group",
         "round_of_32",
@@ -485,7 +489,9 @@
       ]
     }
   },
-  "schemas": {},
+  "schemas": {
+    "prode": "prode"
+  },
   "sequences": {},
   "roles": {},
   "policies": {},

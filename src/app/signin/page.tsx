@@ -19,7 +19,7 @@ export default async function SignInPage() {
           Prode <span className="text-primary">Mundial 2026</span>
         </h1>
         <p className="mt-2 text-balance text-sm text-muted-foreground">
-          Pronosticá los resultados. Sumá puntos. Ganá el derecho a cargar.
+          Aguante el diegote
         </p>
       </div>
 

@@ -71,7 +71,7 @@ export function SignInForm() {
       )}
       <SubmitButton />
       <p className="text-center text-xs text-muted-foreground">
-        Sin contraseña — los nombres se basan en la confianza del grupo.
+        Pone tu nombre y acordatelo, puto
       </p>
     </form>
   );

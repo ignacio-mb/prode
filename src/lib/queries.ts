@@ -174,9 +174,9 @@ export async function getLeaderboard(): Promise<LeaderboardRow[]> {
           AND NOT (p.home_goals = m.home_score AND p.away_goals = m.away_score)
       )::int AS "correctOutcomes",
       COUNT(*) FILTER (WHERE m.status = 'finished')::int AS "played"
-    FROM users u
-    LEFT JOIN predictions p ON p.user_id = u.id
-    LEFT JOIN matches m ON m.id = p.match_id AND m.status = 'finished'
+    FROM prode.users u
+    LEFT JOIN prode.predictions p ON p.user_id = u.id
+    LEFT JOIN prode.matches m ON m.id = p.match_id AND m.status = 'finished'
     GROUP BY u.id, u.name
     ORDER BY "totalPoints" DESC, "exactHits" DESC, "correctOutcomes" DESC, u.name ASC
   `);
