@@ -11,8 +11,13 @@ const globalForDb = globalThis as unknown as {
   __prodeClient?: ReturnType<typeof postgres>;
 };
 
+// Keep the pool small: Supabase's free Session pooler caps total connections
+// (≈15), and a zero-downtime deploy can briefly run two instances at once.
+const POOL_MAX = Number(process.env.DB_POOL_MAX ?? 6);
+
 const client =
-  globalForDb.__prodeClient ?? postgres(connectionString, getPostgresOptions(10));
+  globalForDb.__prodeClient ??
+  postgres(connectionString, getPostgresOptions(POOL_MAX));
 
 if (process.env.NODE_ENV !== "production") {
   globalForDb.__prodeClient = client;
