@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 const ITEMS = [
   { href: "/matches", label: "Partidos", icon: CalendarDays },
   { href: "/leaderboard", label: "Tabla", icon: Trophy },
-  { href: "/my-predictions", label: "Mis pronós", icon: ListChecks },
+  { href: "/my-predictions", label: "Pronósticos", icon: ListChecks },
 ] as const;
 
 export function BottomNav({ isAdmin }: { isAdmin: boolean }) {
