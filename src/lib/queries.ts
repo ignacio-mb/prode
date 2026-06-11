@@ -46,17 +46,27 @@ export type MatchTeam = Pick<
   "id" | "name" | "fifaCode" | "flagEmoji" | "groupLetter"
 > | null;
 
+export interface MatchPrediction {
+  userId: number;
+  userName: string;
+  homeGoals: number;
+  awayGoals: number;
+  points: number | null;
+  isMe: boolean;
+}
+
 export interface MatchListItem {
   match: Match;
   homeTeam: MatchTeam;
   awayTeam: MatchTeam;
   predictionCount: number;
   myPrediction: { homeGoals: number; awayGoals: number } | null;
+  predictions: MatchPrediction[];
 }
 
 /**
- * All matches (ordered by kickoff) with their teams, the count of submitted
- * predictions, and the current user's prediction if any.
+ * All matches (ordered by kickoff) with their teams and every player's
+ * prediction (predictions are fully open). The viewer's own pick is flagged.
  */
 export async function getMatchesForUser(
   userId: number | null,
@@ -66,40 +76,47 @@ export async function getMatchesForUser(
     orderBy: [asc(matches.kickoffAt), asc(matches.matchNumber)],
   });
 
-  const counts = await db
+  const allPreds = await db
     .select({
       matchId: predictions.matchId,
-      count: sql<number>`count(*)::int`,
+      userId: predictions.userId,
+      userName: users.name,
+      homeGoals: predictions.homeGoals,
+      awayGoals: predictions.awayGoals,
+      points: predictions.points,
     })
     .from(predictions)
-    .groupBy(predictions.matchId);
-  const countByMatch = new Map(counts.map((c) => [c.matchId, c.count]));
+    .innerJoin(users, eq(users.id, predictions.userId))
+    .orderBy(asc(users.name));
 
-  let mine = new Map<number, { homeGoals: number; awayGoals: number }>();
-  if (userId) {
-    const myPreds = await db
-      .select({
-        matchId: predictions.matchId,
-        homeGoals: predictions.homeGoals,
-        awayGoals: predictions.awayGoals,
-      })
-      .from(predictions)
-      .where(eq(predictions.userId, userId));
-    mine = new Map(
-      myPreds.map((p) => [
-        p.matchId,
-        { homeGoals: p.homeGoals, awayGoals: p.awayGoals },
-      ]),
-    );
+  const byMatch = new Map<number, MatchPrediction[]>();
+  for (const p of allPreds) {
+    const list = byMatch.get(p.matchId) ?? [];
+    list.push({
+      userId: p.userId,
+      userName: p.userName,
+      homeGoals: p.homeGoals,
+      awayGoals: p.awayGoals,
+      points: p.points,
+      isMe: userId != null && p.userId === userId,
+    });
+    byMatch.set(p.matchId, list);
   }
 
-  return rows.map((m) => ({
-    match: m,
-    homeTeam: m.homeTeam,
-    awayTeam: m.awayTeam,
-    predictionCount: countByMatch.get(m.id) ?? 0,
-    myPrediction: mine.get(m.id) ?? null,
-  }));
+  return rows.map((m) => {
+    const list = byMatch.get(m.id) ?? [];
+    const mine = list.find((p) => p.isMe) ?? null;
+    return {
+      match: m,
+      homeTeam: m.homeTeam,
+      awayTeam: m.awayTeam,
+      predictionCount: list.length,
+      myPrediction: mine
+        ? { homeGoals: mine.homeGoals, awayGoals: mine.awayGoals }
+        : null,
+      predictions: list,
+    };
+  });
 }
 
 export interface MatchDetailPrediction {
