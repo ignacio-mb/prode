@@ -1,5 +1,5 @@
 import type { MatchStatus, Stage } from "@/db/schema";
-import type { MatchListItem, MatchPrediction } from "@/lib/queries";
+import type { MatchListItem } from "@/lib/queries";
 import { STAGE_LABELS } from "@/lib/format";
 
 export interface ClientTeam {
@@ -27,7 +27,6 @@ export interface ClientMatch {
   awayScore: number | null;
   predictionCount: number;
   myPrediction: { homeGoals: number; awayGoals: number } | null;
-  predictions: MatchPrediction[];
 }
 
 /** Map a server MatchListItem to a serializable shape for client components. */
@@ -50,6 +49,5 @@ export function toClientMatch(item: MatchListItem): ClientMatch {
     awayScore: m.awayScore,
     predictionCount: item.predictionCount,
     myPrediction: item.myPrediction,
-    predictions: item.predictions,
   };
 }

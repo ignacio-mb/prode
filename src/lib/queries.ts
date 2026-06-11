@@ -46,27 +46,18 @@ export type MatchTeam = Pick<
   "id" | "name" | "fifaCode" | "flagEmoji" | "groupLetter"
 > | null;
 
-export interface MatchPrediction {
-  userId: number;
-  userName: string;
-  homeGoals: number;
-  awayGoals: number;
-  points: number | null;
-  isMe: boolean;
-}
-
 export interface MatchListItem {
   match: Match;
   homeTeam: MatchTeam;
   awayTeam: MatchTeam;
   predictionCount: number;
   myPrediction: { homeGoals: number; awayGoals: number } | null;
-  predictions: MatchPrediction[];
 }
 
 /**
- * All matches (ordered by kickoff) with their teams and every player's
- * prediction (predictions are fully open). The viewer's own pick is flagged.
+ * All matches (ordered by kickoff) with their teams, the count of submitted
+ * predictions, and only the current user's own pick. Other players' picks are
+ * NOT exposed on the matches list — they're visible on the match detail page.
  */
 export async function getMatchesForUser(
   userId: number | null,
@@ -76,47 +67,40 @@ export async function getMatchesForUser(
     orderBy: [asc(matches.kickoffAt), asc(matches.matchNumber)],
   });
 
-  const allPreds = await db
+  const counts = await db
     .select({
       matchId: predictions.matchId,
-      userId: predictions.userId,
-      userName: users.name,
-      homeGoals: predictions.homeGoals,
-      awayGoals: predictions.awayGoals,
-      points: predictions.points,
+      count: sql<number>`count(*)::int`,
     })
     .from(predictions)
-    .innerJoin(users, eq(users.id, predictions.userId))
-    .orderBy(asc(users.name));
+    .groupBy(predictions.matchId);
+  const countByMatch = new Map(counts.map((c) => [c.matchId, c.count]));
 
-  const byMatch = new Map<number, MatchPrediction[]>();
-  for (const p of allPreds) {
-    const list = byMatch.get(p.matchId) ?? [];
-    list.push({
-      userId: p.userId,
-      userName: p.userName,
-      homeGoals: p.homeGoals,
-      awayGoals: p.awayGoals,
-      points: p.points,
-      isMe: userId != null && p.userId === userId,
-    });
-    byMatch.set(p.matchId, list);
+  let mine = new Map<number, { homeGoals: number; awayGoals: number }>();
+  if (userId) {
+    const myPreds = await db
+      .select({
+        matchId: predictions.matchId,
+        homeGoals: predictions.homeGoals,
+        awayGoals: predictions.awayGoals,
+      })
+      .from(predictions)
+      .where(eq(predictions.userId, userId));
+    mine = new Map(
+      myPreds.map((p) => [
+        p.matchId,
+        { homeGoals: p.homeGoals, awayGoals: p.awayGoals },
+      ]),
+    );
   }
 
-  return rows.map((m) => {
-    const list = byMatch.get(m.id) ?? [];
-    const mine = list.find((p) => p.isMe) ?? null;
-    return {
-      match: m,
-      homeTeam: m.homeTeam,
-      awayTeam: m.awayTeam,
-      predictionCount: list.length,
-      myPrediction: mine
-        ? { homeGoals: mine.homeGoals, awayGoals: mine.awayGoals }
-        : null,
-      predictions: list,
-    };
-  });
+  return rows.map((m) => ({
+    match: m,
+    homeTeam: m.homeTeam,
+    awayTeam: m.awayTeam,
+    predictionCount: countByMatch.get(m.id) ?? 0,
+    myPrediction: mine.get(m.id) ?? null,
+  }));
 }
 
 export interface MatchDetailPrediction {

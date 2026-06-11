@@ -343,65 +343,6 @@ export function MatchCard({
             Tu pronóstico: {saved.h}–{saved.a} · cerrado al inicio
           </p>
         )}
-
-        {/* Subtle: everyone's predictions (predictions are fully open). */}
-        {match.predictions.length > 0 && (
-          <div className="space-y-0.5 border-t border-dashed border-border/70 pt-2">
-            {[...match.predictions]
-              .sort((a, b) => Number(b.isMe) - Number(a.isMe))
-              .map((p) => {
-                const kind = finished
-                  ? scoreKind(
-                      p.homeGoals,
-                      p.awayGoals,
-                      match.homeScore!,
-                      match.awayScore!,
-                    )
-                  : null;
-                return (
-                  <div
-                    key={p.userId}
-                    className="flex items-center justify-between gap-2 text-[11px] leading-tight"
-                  >
-                    <span
-                      className={cn(
-                        "min-w-0 truncate",
-                        p.isMe
-                          ? "font-semibold text-foreground"
-                          : "text-muted-foreground",
-                      )}
-                    >
-                      {p.userName}
-                      {p.isMe && " (vos)"}
-                    </span>
-                    <span className="flex shrink-0 items-center gap-1.5 tabular-nums">
-                      <span
-                        className={cn(
-                          p.isMe ? "font-semibold text-foreground" : "text-muted-foreground",
-                        )}
-                      >
-                        {p.homeGoals}–{p.awayGoals}
-                      </span>
-                      {kind && (
-                        <span
-                          className={cn(
-                            "text-[10px] font-bold",
-                            kind === "exact"
-                              ? "text-accent-foreground"
-                              : kind === "outcome"
-                                ? "text-success"
-                                : "text-muted-foreground/50",
-                          )}
-                        >
-                          +{p.points ?? 0}
-                        </span>
-                      )}
-                    </span>
-                  </div>
-                );
-              })}
-          </div>
-        )}
       </CardContent>
     </Card>
   );
