@@ -46,7 +46,7 @@ function TeamSide({
       </span>
       <div className="min-w-0">
         <div className="truncate text-sm font-semibold">
-          {team?.name ?? label ?? "TBD"}
+          {team?.name ?? label ?? "Por definir"}
         </div>
         {team?.fifaCode && (
           <div className="text-[11px] font-medium text-muted-foreground">
@@ -139,7 +139,7 @@ export function MatchCard({
 
   const submittedLabel = useMemo(() => {
     if (playerCount <= 0) return null;
-    return `${match.predictionCount}/${playerCount} submitted`;
+    return `${match.predictionCount}/${playerCount} enviados`;
   }, [match.predictionCount, playerCount]);
 
   // Points earned (when finished + we predicted).
@@ -187,7 +187,7 @@ export function MatchCard({
           <div className="flex items-center gap-1.5">
             <Badge variant="outline">
               {match.groupLetter
-                ? `Group ${match.groupLetter}`
+                ? `Grupo ${match.groupLetter}`
                 : match.stageLabel}
             </Badge>
             <span className="hidden items-center gap-1 sm:inline-flex">
@@ -243,9 +243,9 @@ export function MatchCard({
             </div>
           ) : (
             <div className="shrink-0 px-2 text-center text-xs font-medium text-muted-foreground">
-              Teams
+              Equipos
               <br />
-              TBD
+              por definir
             </div>
           )}
 
@@ -280,10 +280,10 @@ export function MatchCard({
               >
                 {earned === "exact" && <Trophy className="size-3.5" />}
                 {earned === "exact"
-                  ? "Exact!"
+                  ? "¡Exacto!"
                   : earned === "outcome"
-                    ? "Outcome"
-                    : "Missed"}
+                    ? "Acierto"
+                    : "Errado"}
               </Badge>
             )}
 
@@ -300,12 +300,12 @@ export function MatchCard({
                   <Check className="size-4" />
                 ) : null}
                 {pending
-                  ? "Saving"
+                  ? "Guardando"
                   : saved
                     ? dirty
-                      ? "Update"
-                      : "Saved"
-                    : "Submit"}
+                      ? "Editar"
+                      : "Guardado"
+                    : "Enviar"}
               </Button>
             )}
 
@@ -314,7 +314,7 @@ export function MatchCard({
                 href={`/matches/${match.id}`}
                 className={cn(buttonVariants({ size: "sm", variant: "outline" }))}
               >
-                Predictions
+                Pronósticos
                 <ChevronRight className="size-4" />
               </Link>
             )}
@@ -328,7 +328,7 @@ export function MatchCard({
         )}
         {locked && !finished && saved && (
           <p className="text-center text-[11px] text-muted-foreground">
-            Your pick: {saved.h}–{saved.a} · locked at kickoff
+            Tu pronóstico: {saved.h}–{saved.a} · cerrado al inicio
           </p>
         )}
       </CardContent>

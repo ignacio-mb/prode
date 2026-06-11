@@ -5,9 +5,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "Prode · World Cup 2026",
+  title: "Prode · Mundial 2026",
   description:
-    "Predict every scoreline of the FIFA World Cup 2026 and climb the leaderboard with your friends.",
+    "Pronosticá todos los resultados del Mundial FIFA 2026 y subí en la tabla con tus amigos.",
   applicationName: "Prode WC26",
 };
 
@@ -24,8 +24,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="min-h-dvh font-sans">{children}</body>
+    <html lang="es" className={inter.variable}>
+      <body className="min-h-dvh font-sans">
+        {/* Intentionally in English, per request. */}
+        <div className="bg-primary px-4 py-1 text-center text-[11px] font-bold uppercase tracking-wide text-primary-foreground">
+          made for Lo Ganter. Navita y Weke se la comen
+        </div>
+        {children}
+      </body>
     </html>
   );
 }

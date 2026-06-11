@@ -31,24 +31,24 @@ export default async function MyPredictionsPage() {
 
   return (
     <div className="space-y-4">
-      <h1 className="text-2xl font-extrabold tracking-tight">My Predictions</h1>
+      <h1 className="text-2xl font-extrabold tracking-tight">Mis pronósticos</h1>
 
       <div className="grid grid-cols-3 gap-2">
-        <Stat label="Picks" value={rows.length} />
-        <Stat label="Points" value={totalPoints} accent />
-        <Stat label="Exact" value={exactHits} />
+        <Stat label="Pronós" value={rows.length} />
+        <Stat label="Puntos" value={totalPoints} accent />
+        <Stat label="Exactos" value={exactHits} />
       </div>
 
       {rows.length === 0 ? (
         <Card>
           <CardContent className="flex flex-col items-center gap-2 py-12 text-center text-muted-foreground">
             <ListChecks className="size-10 opacity-50" />
-            <p className="text-sm font-medium">No predictions yet</p>
+            <p className="text-sm font-medium">Todavía no hiciste pronósticos</p>
             <Link
               href="/matches"
               className="text-sm font-semibold text-primary hover:underline"
             >
-              Make your first pick →
+              Hacé tu primer pronóstico →
             </Link>
           </CardContent>
         </Card>
@@ -74,17 +74,17 @@ export default async function MyPredictionsPage() {
                         <div className="flex items-center gap-1.5 text-sm font-semibold">
                           <span aria-hidden>{r.homeTeam?.flagEmoji ?? "🏳️"}</span>
                           <span className="truncate">
-                            {r.homeTeam?.fifaCode ?? "TBD"}
+                            {r.homeTeam?.fifaCode ?? "—"}
                           </span>
                           <span className="text-muted-foreground">v</span>
                           <span className="truncate">
-                            {r.awayTeam?.fifaCode ?? "TBD"}
+                            {r.awayTeam?.fifaCode ?? "—"}
                           </span>
                           <span aria-hidden>{r.awayTeam?.flagEmoji ?? "🏳️"}</span>
                         </div>
                         <div className="text-[11px] text-muted-foreground">
                           {r.match.groupLetter
-                            ? `Group ${r.match.groupLetter}`
+                            ? `Grupo ${r.match.groupLetter}`
                             : STAGE_LABELS[r.match.stage]}{" "}
                           · {formatKickoff(new Date(r.match.kickoffAt))}
                         </div>
@@ -92,7 +92,7 @@ export default async function MyPredictionsPage() {
 
                       <div className="text-center">
                         <div className="text-[10px] uppercase text-muted-foreground">
-                          Pick
+                          Tu pron.
                         </div>
                         <div className="text-base font-bold tabular-nums">
                           {r.homeGoals}–{r.awayGoals}
@@ -102,7 +102,7 @@ export default async function MyPredictionsPage() {
                       {isFinished && (
                         <div className="text-center">
                           <div className="text-[10px] uppercase text-muted-foreground">
-                            Result
+                            Resultado
                           </div>
                           <div className="text-base font-bold tabular-nums">
                             {r.match.homeScore}–{r.match.awayScore}

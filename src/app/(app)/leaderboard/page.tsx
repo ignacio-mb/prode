@@ -21,21 +21,21 @@ export default async function LeaderboardPage() {
     <div className="space-y-4">
       <AutoRefresh intervalMs={30000} />
       <div className="flex items-baseline justify-between">
-        <h1 className="text-2xl font-extrabold tracking-tight">Leaderboard</h1>
+        <h1 className="text-2xl font-extrabold tracking-tight">Tabla</h1>
         <span className="text-xs text-muted-foreground">
-          {settings.exactPoints} exact · {settings.outcomePoints} outcome
+          {settings.exactPoints} exacto · {settings.outcomePoints} resultado
         </span>
       </div>
 
       {rows.length === 0 ? (
         <p className="rounded-lg border bg-card p-6 text-center text-sm text-muted-foreground">
-          No players yet. Be the first to make a prediction!
+          Todavía no hay jugadores. ¡Sé el primero en pronosticar!
         </p>
       ) : (
         <Card className="overflow-hidden">
           <div className="flex items-center gap-3 border-b bg-secondary/50 px-4 py-2 text-[11px] font-bold uppercase tracking-wide text-muted-foreground">
             <span className="w-6 text-center">#</span>
-            <span className="flex-1">Player</span>
+            <span className="flex-1">Jugador</span>
             <span className="w-10 text-center" title="Exact scores">
               <Target className="mx-auto size-3.5" />
             </span>
@@ -74,11 +74,11 @@ export default async function LeaderboardPage() {
                     >
                       {r.name}
                       {isMe && (
-                        <span className="ml-1 text-xs text-primary">(you)</span>
+                        <span className="ml-1 text-xs text-primary">(vos)</span>
                       )}
                     </div>
                     <div className="text-[11px] text-muted-foreground">
-                      {r.played} played · {r.correctOutcomes} outcomes
+                      {r.played} jugados · {r.correctOutcomes} aciertos
                     </div>
                   </div>
                   <span className="w-10 text-center text-sm font-semibold tabular-nums">
@@ -97,8 +97,8 @@ export default async function LeaderboardPage() {
       )}
 
       <p className="px-1 text-[11px] leading-relaxed text-muted-foreground">
-        Ranking by total points, then exact scores, then correct outcomes.
-        Updates automatically as results come in.
+        Se ordena por puntos totales, luego por resultados exactos y luego por
+        aciertos. Se actualiza automáticamente cuando llegan los resultados.
       </p>
     </div>
   );

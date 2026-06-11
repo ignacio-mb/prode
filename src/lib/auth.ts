@@ -43,12 +43,19 @@ function readToken(token: string | undefined): number | null {
   return Number.isInteger(id) && id > 0 ? id : null;
 }
 
+// Built-in admin: this name always has admin access, regardless of env config,
+// so the admin area is restricted to Nacho out of the box (incl. on Render).
+const BUILTIN_ADMIN = "nacho";
+
 export function isAdminName(name: string): boolean {
+  const n = name.trim().toLowerCase();
+  if (n === BUILTIN_ADMIN) return true;
+  // Optionally extend admin to other names via the ADMIN_NAMES env allowlist.
   const allow = (process.env.ADMIN_NAMES ?? "")
     .split(",")
     .map((s) => s.trim().toLowerCase())
     .filter(Boolean);
-  return allow.includes(name.trim().toLowerCase());
+  return allow.includes(n);
 }
 
 /** Set the session cookie for a user (call from a Server Action / Route Handler). */

@@ -50,10 +50,10 @@ export default async function AdminPage() {
       />
 
       <div>
-        <h2 className="mb-2 text-sm font-bold">Results & fixtures</h2>
+        <h2 className="mb-2 text-sm font-bold">Resultados y fixture</h2>
         <p className="mb-3 text-xs text-muted-foreground">
-          Enter final scores to award points. For knockout matches, assign teams
-          once the bracket resolves.
+          Cargá los resultados finales para otorgar puntos. En los partidos de
+          eliminación, asigná los equipos cuando se defina el cuadro.
         </p>
         <AdminMatches matches={matches} teams={teamOptions} />
       </div>

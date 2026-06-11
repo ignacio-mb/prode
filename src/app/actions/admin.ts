@@ -15,7 +15,7 @@ async function ensureAdmin(): Promise<ActionResult | null> {
     await requireAdmin();
     return null;
   } catch {
-    return { ok: false, error: "Admin only." };
+    return { ok: false, error: "Solo administradores." };
   }
 }
 
@@ -37,14 +37,14 @@ export async function saveResultAction(input: {
 
   const parsed = resultInputSchema.safeParse(input);
   if (!parsed.success) {
-    return { ok: false, error: parsed.error.issues[0]?.message ?? "Invalid" };
+    return { ok: false, error: parsed.error.issues[0]?.message ?? "Inválido" };
   }
   const { matchId, homeScore, awayScore } = parsed.data;
 
   const match = await db.query.matches.findFirst({
     where: eq(matches.id, matchId),
   });
-  if (!match) return { ok: false, error: "Match not found." };
+  if (!match) return { ok: false, error: "Partido no encontrado." };
 
   await db
     .update(matches)
@@ -86,9 +86,9 @@ export async function setLiveAction(input: {
   const match = await db.query.matches.findFirst({
     where: eq(matches.id, input.matchId),
   });
-  if (!match) return { ok: false, error: "Match not found." };
+  if (!match) return { ok: false, error: "Partido no encontrado." };
   if (match.status === "finished") {
-    return { ok: false, error: "Match already finished." };
+    return { ok: false, error: "El partido ya finalizó." };
   }
 
   await db
@@ -130,7 +130,7 @@ export async function updateScoringAction(input: {
 
   const parsed = scoringSettingsSchema.safeParse(input);
   if (!parsed.success) {
-    return { ok: false, error: parsed.error.issues[0]?.message ?? "Invalid" };
+    return { ok: false, error: parsed.error.issues[0]?.message ?? "Inválido" };
   }
 
   await db

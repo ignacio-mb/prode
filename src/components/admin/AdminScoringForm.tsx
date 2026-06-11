@@ -27,23 +27,25 @@ export function AdminScoringForm({
         outcomePoints: outcome,
         wrongPoints: wrong,
       });
-      setMsg(res.ok ? "Saved — all results recomputed." : res.error);
+      setMsg(
+        res.ok ? "Guardado — se recalcularon los resultados." : res.error,
+      );
     });
   }
 
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-base">Scoring</CardTitle>
+        <CardTitle className="text-base">Puntaje</CardTitle>
         <p className="text-xs text-muted-foreground">
-          Changing these recomputes points for every finished match.
+          Cambiar esto recalcula los puntos de todos los partidos finalizados.
         </p>
       </CardHeader>
       <CardContent className="space-y-3">
         <div className="grid grid-cols-3 gap-3">
-          <Field label="Exact" value={exact} onChange={setExact} />
-          <Field label="Outcome" value={outcome} onChange={setOutcome} />
-          <Field label="Wrong" value={wrong} onChange={setWrong} />
+          <Field label="Exacto" value={exact} onChange={setExact} />
+          <Field label="Resultado" value={outcome} onChange={setOutcome} />
+          <Field label="Errado" value={wrong} onChange={setWrong} />
         </div>
         <div className="flex items-center justify-between">
           <span className="text-xs text-muted-foreground">{msg}</span>
@@ -53,7 +55,7 @@ export function AdminScoringForm({
             ) : (
               <Check className="size-4" />
             )}
-            Save
+            Guardar
           </Button>
         </div>
       </CardContent>

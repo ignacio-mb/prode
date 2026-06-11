@@ -4,7 +4,8 @@
 # Notes:
 # - We use Render's *internal* connection string (no SSL needed), so we do NOT
 #   set DATABASE_SSL. For external Postgres (Neon/Supabase) set DATABASE_SSL=require.
-# - Migrations + idempotent seed run in preDeployCommand (once per deploy).
+# - Free tier does NOT support preDeployCommand, so migrations + the idempotent
+#   seed run at the start of startCommand instead (safe to repeat on each boot).
 databases:
   - name: prode-db
     plan: free
@@ -18,8 +19,7 @@ services:
     plan: free
     region: oregon
     buildCommand: npm install && npm run build
-    preDeployCommand: npm run db:migrate && npm run db:seed
-    startCommand: npm run start
+    startCommand: npm run db:migrate && npm run db:seed && npm run start
     healthCheckPath: /api/health
     envVars:
       - key: DATABASE_URL

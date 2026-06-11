@@ -1,42 +1,48 @@
 import type { Stage } from "@/db/schema";
 
+// Everyone sees the schedule in Argentina time, in Spanish.
+const LOCALE = "es-AR";
+const TIME_ZONE = "America/Argentina/Buenos_Aires";
+
 export const STAGE_LABELS: Record<Stage, string> = {
-  group: "Group Stage",
-  round_of_32: "Round of 32",
-  round_of_16: "Round of 16",
-  quarter_final: "Quarter-finals",
-  semi_final: "Semi-finals",
-  third_place: "Third-place Play-off",
+  group: "Fase de grupos",
+  round_of_32: "Dieciseisavos de final",
+  round_of_16: "Octavos de final",
+  quarter_final: "Cuartos de final",
+  semi_final: "Semifinales",
+  third_place: "Tercer puesto",
   final: "Final",
 };
 
 export const STAGE_SHORT: Record<Stage, string> = {
-  group: "Group",
-  round_of_32: "R32",
-  round_of_16: "R16",
-  quarter_final: "QF",
-  semi_final: "SF",
-  third_place: "3rd",
+  group: "Grupo",
+  round_of_32: "16avos",
+  round_of_16: "8vos",
+  quarter_final: "4tos",
+  semi_final: "Semis",
+  third_place: "3er",
   final: "Final",
 };
 
-/** e.g. "Thu, Jun 11 · 19:00" in the viewer's locale/timezone. */
+/** e.g. "jue, 11 jun · 16:00" in Argentina time. */
 export function formatKickoff(date: Date): string {
-  return new Intl.DateTimeFormat(undefined, {
+  return new Intl.DateTimeFormat(LOCALE, {
     weekday: "short",
     month: "short",
     day: "numeric",
     hour: "2-digit",
     minute: "2-digit",
+    timeZone: TIME_ZONE,
   }).format(date);
 }
 
-/** Date-only key for grouping matches by calendar day in the viewer's tz. */
+/** Date-only key for grouping matches by calendar day (Argentina time). */
 export function dayKey(date: Date): string {
-  return new Intl.DateTimeFormat(undefined, {
+  return new Intl.DateTimeFormat(LOCALE, {
     weekday: "long",
     month: "long",
     day: "numeric",
+    timeZone: TIME_ZONE,
   }).format(date);
 }
 
@@ -46,7 +52,7 @@ export function isLocked(kickoffAt: Date, now: Date = new Date()): boolean {
 
 /** Compact countdown string from a millisecond delta. */
 export function formatCountdown(msUntil: number): string {
-  if (msUntil <= 0) return "Locked";
+  if (msUntil <= 0) return "Cerrado";
   const totalSeconds = Math.floor(msUntil / 1000);
   const days = Math.floor(totalSeconds / 86400);
   const hours = Math.floor((totalSeconds % 86400) / 3600);

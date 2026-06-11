@@ -3,18 +3,18 @@ import { z } from "zod";
 export const displayNameSchema = z
   .string()
   .trim()
-  .min(2, "Name must be at least 2 characters")
-  .max(24, "Name must be at most 24 characters")
+  .min(2, "El nombre debe tener al menos 2 caracteres")
+  .max(24, "El nombre debe tener como máximo 24 caracteres")
   .regex(
     /^[\p{L}\p{N} ._'-]+$/u,
-    "Use letters, numbers, spaces, and . _ ' - only",
+    "Usá solo letras, números, espacios y . _ ' -",
   );
 
 export const goalsSchema = z
   .number()
-  .int("Goals must be a whole number")
-  .min(0, "Goals can't be negative")
-  .max(30, "That's a lot of goals");
+  .int("Los goles deben ser un número entero")
+  .min(0, "Los goles no pueden ser negativos")
+  .max(30, "Demasiados goles");
 
 export const predictionInputSchema = z.object({
   matchId: z.number().int().positive(),

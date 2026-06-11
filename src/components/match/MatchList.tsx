@@ -19,14 +19,14 @@ type Filter =
   | "final";
 
 const FILTERS: { key: Filter; label: string }[] = [
-  { key: "all", label: "All" },
-  { key: "open", label: "Open" },
-  { key: "finished", label: "Played" },
-  { key: "group", label: "Groups" },
-  { key: "round_of_32", label: "R32" },
-  { key: "round_of_16", label: "R16" },
-  { key: "quarter_final", label: "QF" },
-  { key: "semi_final", label: "SF" },
+  { key: "all", label: "Todos" },
+  { key: "open", label: "Abiertos" },
+  { key: "finished", label: "Jugados" },
+  { key: "group", label: "Grupos" },
+  { key: "round_of_32", label: "16avos" },
+  { key: "round_of_16", label: "8vos" },
+  { key: "quarter_final", label: "4tos" },
+  { key: "semi_final", label: "Semis" },
   { key: "final", label: "Final" },
 ];
 
@@ -92,11 +92,11 @@ export function MatchList({
       {groups.length === 0 ? (
         <div className="flex flex-col items-center gap-2 py-16 text-center text-muted-foreground">
           <CalendarX2 className="size-10 opacity-50" />
-          <p className="text-sm font-medium">No matches here</p>
+          <p className="text-sm font-medium">No hay partidos acá</p>
           <p className="text-xs">
             {filter === "open"
-              ? "Nothing open right now — try another filter."
-              : "Try a different filter."}
+              ? "Nada abierto ahora — probá otro filtro."
+              : "Probá otro filtro."}
           </p>
         </div>
       ) : (

@@ -47,7 +47,7 @@ export default async function MatchDetailPage({
         className="inline-flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground"
       >
         <ChevronLeft className="size-4" />
-        Matches
+        Partidos
       </Link>
       <MatchDetailView data={data} currentUserId={user.id} />
     </div>

@@ -1,14 +1,13 @@
 /**
- * Deterministically generates the full 104-match FIFA World Cup 2026 schedule
- * and writes it to seed/fixtures.json (committed, used by the seed script).
+ * Transforms the official-aligned FIFA World Cup 2026 schedule (sourced from the
+ * public-domain openfootball dataset, committed at seed/worldcup.2026.json) into
+ * the two seed files the app loads:
+ *   - seed/teams.json     (48 teams, with FIFA codes + flag emojis + group)
+ *   - seed/fixtures.json  (104 matches, FIFA match numbers 1–104)
  *
- * IMPORTANT — data accuracy:
- * The group→team assignments and exact kickoff date/times here are a
- * representative, internally-consistent dataset, NOT the official FIFA fixture
- * list. The *structure* is correct (12 groups of 4, 72 group matches, a 32-team
- * knockout bracket that feeds forward correctly to a single final = 104). To use
- * official data, replace seed/teams.json + the schedule below (or wire the seed
- * script to football-data.org / API-Football) and re-run `npm run db:fixtures`.
+ * Source: https://github.com/openfootball/worldcup.json (2026/worldcup.json)
+ * Kickoff times are stored as absolute instants (date + local time + venue UTC
+ * offset), so the app renders them in each viewer's timezone (e.g. Argentina).
  *
  * Run: npm run db:fixtures
  */
@@ -24,9 +23,14 @@ type Stage =
   | "third_place"
   | "final";
 
-interface FixtureTeam {
-  fifaCode: string;
-  groupLetter: string;
+interface SourceMatch {
+  round: string;
+  date: string;
+  time: string; // "13:00 UTC-6"
+  team1: string;
+  team2: string;
+  group?: string; // "Group A"
+  ground: string;
 }
 
 interface Fixture {
@@ -37,232 +41,167 @@ interface Fixture {
   awayCode: string | null;
   homeLabel: string | null;
   awayLabel: string | null;
-  kickoffAt: string; // ISO 8601 with explicit timezone offset
+  kickoffAt: string; // ISO 8601 with explicit offset
   venue: string;
 }
 
-// 16 host venues with their UTC offset (summer 2026) for timezone-correct kickoffs.
-const VENUES: { name: string; offset: string }[] = [
-  { name: "Estadio Azteca, Mexico City", offset: "-06:00" },
-  { name: "MetLife Stadium, New York/New Jersey", offset: "-04:00" },
-  { name: "SoFi Stadium, Los Angeles", offset: "-07:00" },
-  { name: "AT&T Stadium, Dallas", offset: "-05:00" },
-  { name: "Mercedes-Benz Stadium, Atlanta", offset: "-04:00" },
-  { name: "Lumen Field, Seattle", offset: "-07:00" },
-  { name: "Arrowhead Stadium, Kansas City", offset: "-05:00" },
-  { name: "Hard Rock Stadium, Miami", offset: "-04:00" },
-  { name: "Lincoln Financial Field, Philadelphia", offset: "-04:00" },
-  { name: "Levi's Stadium, San Francisco Bay Area", offset: "-07:00" },
-  { name: "NRG Stadium, Houston", offset: "-05:00" },
-  { name: "Gillette Stadium, Boston", offset: "-04:00" },
-  { name: "BMO Field, Toronto", offset: "-04:00" },
-  { name: "BC Place, Vancouver", offset: "-07:00" },
-  { name: "Estadio Akron, Guadalajara", offset: "-06:00" },
-  { name: "Estadio BBVA, Monterrey", offset: "-06:00" },
-];
+// name (as it appears in the source) -> FIFA code + flag emoji
+const TEAM_META: Record<string, { fifaCode: string; flagEmoji: string }> = {
+  Mexico: { fifaCode: "MEX", flagEmoji: "🇲🇽" },
+  "South Africa": { fifaCode: "RSA", flagEmoji: "🇿🇦" },
+  "South Korea": { fifaCode: "KOR", flagEmoji: "🇰🇷" },
+  "Czech Republic": { fifaCode: "CZE", flagEmoji: "🇨🇿" },
+  Canada: { fifaCode: "CAN", flagEmoji: "🇨🇦" },
+  "Bosnia & Herzegovina": { fifaCode: "BIH", flagEmoji: "🇧🇦" },
+  Qatar: { fifaCode: "QAT", flagEmoji: "🇶🇦" },
+  Switzerland: { fifaCode: "SUI", flagEmoji: "🇨🇭" },
+  Brazil: { fifaCode: "BRA", flagEmoji: "🇧🇷" },
+  Morocco: { fifaCode: "MAR", flagEmoji: "🇲🇦" },
+  Haiti: { fifaCode: "HAI", flagEmoji: "🇭🇹" },
+  Scotland: { fifaCode: "SCO", flagEmoji: "🏴󠁧󠁢󠁳󠁣󠁴󠁿" },
+  USA: { fifaCode: "USA", flagEmoji: "🇺🇸" },
+  Paraguay: { fifaCode: "PAR", flagEmoji: "🇵🇾" },
+  Australia: { fifaCode: "AUS", flagEmoji: "🇦🇺" },
+  Turkey: { fifaCode: "TUR", flagEmoji: "🇹🇷" },
+  Germany: { fifaCode: "GER", flagEmoji: "🇩🇪" },
+  "Curaçao": { fifaCode: "CUW", flagEmoji: "🇨🇼" },
+  "Ivory Coast": { fifaCode: "CIV", flagEmoji: "🇨🇮" },
+  Ecuador: { fifaCode: "ECU", flagEmoji: "🇪🇨" },
+  Netherlands: { fifaCode: "NED", flagEmoji: "🇳🇱" },
+  Japan: { fifaCode: "JPN", flagEmoji: "🇯🇵" },
+  Sweden: { fifaCode: "SWE", flagEmoji: "🇸🇪" },
+  Tunisia: { fifaCode: "TUN", flagEmoji: "🇹🇳" },
+  Belgium: { fifaCode: "BEL", flagEmoji: "🇧🇪" },
+  Egypt: { fifaCode: "EGY", flagEmoji: "🇪🇬" },
+  Iran: { fifaCode: "IRN", flagEmoji: "🇮🇷" },
+  "New Zealand": { fifaCode: "NZL", flagEmoji: "🇳🇿" },
+  Spain: { fifaCode: "ESP", flagEmoji: "🇪🇸" },
+  "Cape Verde": { fifaCode: "CPV", flagEmoji: "🇨🇻" },
+  "Saudi Arabia": { fifaCode: "KSA", flagEmoji: "🇸🇦" },
+  Uruguay: { fifaCode: "URU", flagEmoji: "🇺🇾" },
+  France: { fifaCode: "FRA", flagEmoji: "🇫🇷" },
+  Senegal: { fifaCode: "SEN", flagEmoji: "🇸🇳" },
+  Iraq: { fifaCode: "IRQ", flagEmoji: "🇮🇶" },
+  Norway: { fifaCode: "NOR", flagEmoji: "🇳🇴" },
+  Argentina: { fifaCode: "ARG", flagEmoji: "🇦🇷" },
+  Algeria: { fifaCode: "ALG", flagEmoji: "🇩🇿" },
+  Austria: { fifaCode: "AUT", flagEmoji: "🇦🇹" },
+  Jordan: { fifaCode: "JOR", flagEmoji: "🇯🇴" },
+  Portugal: { fifaCode: "POR", flagEmoji: "🇵🇹" },
+  "DR Congo": { fifaCode: "COD", flagEmoji: "🇨🇩" },
+  Uzbekistan: { fifaCode: "UZB", flagEmoji: "🇺🇿" },
+  Colombia: { fifaCode: "COL", flagEmoji: "🇨🇴" },
+  England: { fifaCode: "ENG", flagEmoji: "🏴󠁧󠁢󠁥󠁮󠁧󠁿" },
+  Croatia: { fifaCode: "CRO", flagEmoji: "🇭🇷" },
+  Ghana: { fifaCode: "GHA", flagEmoji: "🇬🇭" },
+  Panama: { fifaCode: "PAN", flagEmoji: "🇵🇦" },
+};
 
-const KICKOFF_HOURS = [12, 15, 18, 21]; // local kickoff slots
+const STAGE_BY_ROUND = (round: string): Stage => {
+  if (round.startsWith("Matchday")) return "group";
+  if (round === "Round of 32") return "round_of_32";
+  if (round === "Round of 16") return "round_of_16";
+  if (round === "Quarter-final") return "quarter_final";
+  if (round === "Semi-final") return "semi_final";
+  if (round === "Match for third place") return "third_place";
+  if (round === "Final") return "final";
+  throw new Error(`Unknown round: ${round}`);
+};
 
-function pad(n: number): string {
-  return String(n).padStart(2, "0");
+/** Convert "13:00 UTC-6" + date -> ISO with explicit offset. */
+function toIso(date: string, time: string): string {
+  const match = time.match(/^(\d{1,2}):(\d{2})\s+UTC([+-]\d{1,2})$/);
+  if (!match) throw new Error(`Unparseable time: "${time}"`);
+  const [, hh, mm, off] = match;
+  const sign = off.startsWith("-") ? "-" : "+";
+  const offHours = Math.abs(parseInt(off, 10));
+  const offset = `${sign}${String(offHours).padStart(2, "0")}:00`;
+  return `${date}T${hh.padStart(2, "0")}:${mm}:00${offset}`;
 }
 
-/** Build an ISO timestamp with explicit offset from a base date + day/slot. */
-function kickoff(
-  baseISODate: string,
-  dayOffset: number,
-  hour: number,
-  tzOffset: string,
-): string {
-  const base = new Date(`${baseISODate}T00:00:00Z`);
-  base.setUTCDate(base.getUTCDate() + dayOffset);
-  const y = base.getUTCFullYear();
-  const m = pad(base.getUTCMonth() + 1);
-  const d = pad(base.getUTCDate());
-  return `${y}-${m}-${d}T${pad(hour)}:00:00${tzOffset}`;
+/** Knockout placeholder ("1A", "2B", "3A/B/C/D/F", "W74", "L101") -> ES label. */
+function knockoutLabel(slot: string): string {
+  let m;
+  if ((m = slot.match(/^1([A-L])$/))) return `Ganador Grupo ${m[1]}`;
+  if ((m = slot.match(/^2([A-L])$/))) return `2º Grupo ${m[1]}`;
+  if ((m = slot.match(/^3([A-Z/]+)$/))) return `3º (${m[1]})`;
+  if ((m = slot.match(/^W(\d+)$/))) return `Ganador del Partido ${m[1]}`;
+  if ((m = slot.match(/^L(\d+)$/))) return `Perdedor del Partido ${m[1]}`;
+  return slot;
 }
 
 function main() {
-  const teams: FixtureTeam[] = JSON.parse(
-    readFileSync(join(process.cwd(), "seed", "teams.json"), "utf8"),
+  const source: { matches: SourceMatch[] } = JSON.parse(
+    readFileSync(join(process.cwd(), "seed", "worldcup.2026.json"), "utf8"),
+  );
+  const matches = source.matches;
+  if (matches.length !== 104) {
+    throw new Error(`Expected 104 source matches, got ${matches.length}`);
+  }
+
+  // --- Teams (from group-stage matches) ---------------------------------
+  const teamsByName = new Map<
+    string,
+    { name: string; fifaCode: string; flagEmoji: string; groupLetter: string }
+  >();
+  for (const m of matches) {
+    if (!m.group) continue;
+    const letter = m.group.replace("Group ", "");
+    for (const name of [m.team1, m.team2]) {
+      if (teamsByName.has(name)) continue;
+      const meta = TEAM_META[name];
+      if (!meta) throw new Error(`No FIFA code/flag mapping for team: ${name}`);
+      teamsByName.set(name, {
+        name,
+        fifaCode: meta.fifaCode,
+        flagEmoji: meta.flagEmoji,
+        groupLetter: letter,
+      });
+    }
+  }
+  if (teamsByName.size !== 48) {
+    throw new Error(`Expected 48 teams, got ${teamsByName.size}`);
+  }
+  const teams = [...teamsByName.values()].sort(
+    (a, b) =>
+      a.groupLetter.localeCompare(b.groupLetter) || a.name.localeCompare(b.name),
   );
 
-  const groups = new Map<string, string[]>();
-  for (const t of teams) {
-    if (!groups.has(t.groupLetter)) groups.set(t.groupLetter, []);
-    groups.get(t.groupLetter)!.push(t.fifaCode);
-  }
-  const groupLetters = [...groups.keys()].sort();
+  // --- Fixtures (FIFA match number = position in the official order) -----
+  const fixtures: Fixture[] = matches.map((m, i) => {
+    const stage = STAGE_BY_ROUND(m.round);
+    const isGroup = stage === "group";
+    const code = (name: string) => TEAM_META[name]?.fifaCode ?? null;
+    return {
+      matchNumber: i + 1,
+      stage,
+      groupLetter: isGroup && m.group ? m.group.replace("Group ", "") : null,
+      homeCode: isGroup ? code(m.team1) : null,
+      awayCode: isGroup ? code(m.team2) : null,
+      homeLabel: isGroup ? null : knockoutLabel(m.team1),
+      awayLabel: isGroup ? null : knockoutLabel(m.team2),
+      kickoffAt: toIso(m.date, m.time),
+      venue: m.ground,
+    };
+  });
 
-  const fixtures: Fixture[] = [];
-  let venueIdx = 0;
-  const nextVenue = () => VENUES[venueIdx++ % VENUES.length].name;
-  const venueOffsetFor = (name: string) =>
-    VENUES.find((v) => v.name === name)!.offset;
-
-  // --- Group stage: 72 matches -------------------------------------------
-  // Standard 4-team round-robin order (1-indexed positions), grouped by matchday.
-  const ROUND_ROBIN: { home: number; away: number; matchday: number }[] = [
-    { home: 1, away: 2, matchday: 1 },
-    { home: 3, away: 4, matchday: 1 },
-    { home: 1, away: 3, matchday: 2 },
-    { home: 4, away: 2, matchday: 2 },
-    { home: 4, away: 1, matchday: 3 },
-    { home: 2, away: 3, matchday: 3 },
-  ];
-
-  const MATCHDAY_BASE: Record<number, string> = {
-    1: "2026-06-11",
-    2: "2026-06-17",
-    3: "2026-06-24",
-  };
-
-  // Flatten to (matchday, group, fixture) then schedule by matchday.
-  type GroupFixture = {
-    group: string;
-    homeCode: string;
-    awayCode: string;
-    matchday: number;
-  };
-  const byMatchday: Record<number, GroupFixture[]> = { 1: [], 2: [], 3: [] };
-  for (const letter of groupLetters) {
-    const codes = groups.get(letter)!; // 4 codes
-    for (const rr of ROUND_ROBIN) {
-      byMatchday[rr.matchday].push({
-        group: letter,
-        homeCode: codes[rr.home - 1],
-        awayCode: codes[rr.away - 1],
-        matchday: rr.matchday,
-      });
-    }
-  }
-
-  let matchNumber = 1;
-  for (const md of [1, 2, 3]) {
-    const list = byMatchday[md];
-    list.forEach((gf, i) => {
-      const dayOffset = Math.floor(i / KICKOFF_HOURS.length);
-      const hour = KICKOFF_HOURS[i % KICKOFF_HOURS.length];
-      const venue = nextVenue();
-      fixtures.push({
-        matchNumber: matchNumber++,
-        stage: "group",
-        groupLetter: gf.group,
-        homeCode: gf.homeCode,
-        awayCode: gf.awayCode,
-        homeLabel: null,
-        awayLabel: null,
-        kickoffAt: kickoff(
-          MATCHDAY_BASE[md],
-          dayOffset,
-          hour,
-          venueOffsetFor(venue),
-        ),
-        venue,
-      });
-    });
-  }
-
-  // --- Knockout bracket ---------------------------------------------------
-  // R32 slot labels: 16 home + 16 away covering all 1x/2x group slots + 8 thirds.
-  const homeSlots = [
-    "1A", "1B", "1C", "1D", "1E", "1F", "1G", "1H", "1I", "1J", "1K", "1L",
-    "2A", "2B", "2C", "2D",
-  ];
-  const awaySlots = [
-    "2E", "2F", "2G", "2H", "2I", "2J", "2K", "2L",
-    "3rd #1", "3rd #2", "3rd #3", "3rd #4", "3rd #5", "3rd #6", "3rd #7", "3rd #8",
-  ];
-
-  const knockoutRound = (
-    stage: Stage,
-    count: number,
-    baseDate: string,
-    slotLabel: (i: number) => { home: string; away: string },
-  ) => {
-    for (let i = 0; i < count; i++) {
-      const dayOffset = Math.floor(i / 2);
-      const hour = KICKOFF_HOURS[(i % 2) + 1]; // 15:00 / 18:00 slots
-      const venue = nextVenue();
-      const labels = slotLabel(i);
-      fixtures.push({
-        matchNumber: matchNumber++,
-        stage,
-        groupLetter: null,
-        homeCode: null,
-        awayCode: null,
-        homeLabel: labels.home,
-        awayLabel: labels.away,
-        kickoffAt: kickoff(baseDate, dayOffset, hour, venueOffsetFor(venue)),
-        venue,
-      });
-    }
-  };
-
-  // Turn a slot code ("1A", "2E", "3rd #4") into a human label.
-  const slotLabel = (slot: string): string => {
-    if (slot.startsWith("3rd")) return `Best ${slot}`;
-    const pos = slot[0];
-    const grp = slot.slice(1);
-    return pos === "1"
-      ? `Winner Group ${grp}`
-      : `Runner-up Group ${grp}`;
-  };
-
-  // R32 (matches 73–88)
-  knockoutRound("round_of_32", 16, "2026-06-28", (i) => ({
-    home: slotLabel(homeSlots[i]),
-    away: slotLabel(awaySlots[i]),
-  }));
-
-  // Helper for "winner/loser of match N".
-  const W = (n: number) => `Winner of Match ${n}`;
-  const L = (n: number) => `Loser of Match ${n}`;
-
-  // R16 (89–96): pairs of consecutive R32 winners.
-  knockoutRound("round_of_16", 8, "2026-07-04", (i) => ({
-    home: W(73 + i * 2),
-    away: W(74 + i * 2),
-  }));
-
-  // QF (97–100): pairs of consecutive R16 winners.
-  knockoutRound("quarter_final", 4, "2026-07-09", (i) => ({
-    home: W(89 + i * 2),
-    away: W(90 + i * 2),
-  }));
-
-  // SF (101–102): pairs of consecutive QF winners.
-  knockoutRound("semi_final", 2, "2026-07-14", (i) => ({
-    home: W(97 + i * 2),
-    away: W(98 + i * 2),
-  }));
-
-  // Third-place play-off (103): losers of the two semis.
-  knockoutRound("third_place", 1, "2026-07-18", () => ({
-    home: L(101),
-    away: L(102),
-  }));
-
-  // Final (104): winners of the two semis.
-  knockoutRound("final", 1, "2026-07-19", () => ({
-    home: W(101),
-    away: W(102),
-  }));
-
-  // --- Sanity checks ------------------------------------------------------
-  if (fixtures.length !== 104) {
-    throw new Error(`Expected 104 fixtures, got ${fixtures.length}`);
-  }
+  // --- Sanity checks -----------------------------------------------------
   const groupCount = fixtures.filter((f) => f.stage === "group").length;
-  if (groupCount !== 72) {
-    throw new Error(`Expected 72 group matches, got ${groupCount}`);
-  }
+  if (groupCount !== 72) throw new Error(`Expected 72 group matches, got ${groupCount}`);
 
-  const out = join(process.cwd(), "seed", "fixtures.json");
-  writeFileSync(out, JSON.stringify(fixtures, null, 2) + "\n", "utf8");
+  writeFileSync(
+    join(process.cwd(), "seed", "teams.json"),
+    JSON.stringify(teams, null, 2) + "\n",
+    "utf8",
+  );
+  writeFileSync(
+    join(process.cwd(), "seed", "fixtures.json"),
+    JSON.stringify(fixtures, null, 2) + "\n",
+    "utf8",
+  );
   console.log(
-    `[fixtures] wrote ${fixtures.length} matches → seed/fixtures.json ` +
-      `(${groupCount} group + ${fixtures.length - groupCount} knockout)`,
+    `[fixtures] wrote ${teams.length} teams + ${fixtures.length} matches ` +
+      `(${groupCount} group + ${fixtures.length - groupCount} knockout) from official schedule.`,
   );
 }
 

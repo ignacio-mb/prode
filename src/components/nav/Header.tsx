@@ -21,7 +21,7 @@ export function Header({ userName }: { userName: string }) {
           <form action={signOutAction}>
             <button
               type="submit"
-              aria-label="Sign out"
+              aria-label="Cerrar sesión"
               className="flex size-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
             >
               <LogOut className="size-4" />

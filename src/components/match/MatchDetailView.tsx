@@ -60,8 +60,8 @@ export function MatchDetailView({
     if (myExact) setConfetti(1);
   }, [myExact]);
 
-  const home = data.homeTeam?.name ?? data.homeLabel ?? "TBD";
-  const away = data.awayTeam?.name ?? data.awayLabel ?? "TBD";
+  const home = data.homeTeam?.name ?? data.homeLabel ?? "Por definir";
+  const away = data.awayTeam?.name ?? data.awayLabel ?? "Por definir";
 
   return (
     <div className="space-y-4">
@@ -70,14 +70,16 @@ export function MatchDetailView({
         <CardContent className="space-y-3 p-5">
           <div className="flex items-center justify-between text-xs text-muted-foreground">
             <Badge variant="outline">
-              {data.groupLetter ? `Group ${data.groupLetter}` : data.stageLabel}
+              {data.groupLetter
+                ? `Grupo ${data.groupLetter}`
+                : data.stageLabel}
             </Badge>
             {data.status === "live" ? (
               <Badge variant="live" className="animate-pulse">
                 ● LIVE
               </Badge>
             ) : finished ? (
-              <Badge variant="secondary">Full time</Badge>
+              <Badge variant="secondary">Finalizado</Badge>
             ) : (
               <Countdown kickoffMs={data.kickoffMs} />
             )}
@@ -118,7 +120,7 @@ export function MatchDetailView({
 
       <div>
         <h2 className="mb-2 px-0.5 text-sm font-bold">
-          Predictions{" "}
+          Pronósticos{" "}
           <span className="font-normal text-muted-foreground">
             ({data.predictions.length})
           </span>
@@ -126,13 +128,13 @@ export function MatchDetailView({
 
         {!locked ? (
           <p className="rounded-lg border bg-card p-4 text-center text-sm text-muted-foreground">
-            Predictions are visible once everyone&apos;s in — full table here.
-            This match isn&apos;t locked yet, so picks can still change until
-            kickoff.
+            Acá vas a ver la tabla con los pronósticos de todos. Este partido
+            todavía no está cerrado, así que los pronósticos pueden cambiar hasta
+            el inicio.
           </p>
         ) : data.predictions.length === 0 ? (
           <p className="rounded-lg border bg-card p-4 text-center text-sm text-muted-foreground">
-            No one predicted this match.
+            Nadie pronosticó este partido.
           </p>
         ) : (
           <Card>
@@ -163,7 +165,7 @@ export function MatchDetailView({
                     >
                       {p.userName}
                       {isMe && (
-                        <span className="ml-1 text-xs text-primary">(you)</span>
+                        <span className="ml-1 text-xs text-primary">(vos)</span>
                       )}
                     </span>
                     <span className="shrink-0 text-base font-bold tabular-nums">

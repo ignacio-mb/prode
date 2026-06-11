@@ -17,13 +17,13 @@ export async function savePredictionAction(input: {
   awayGoals: number;
 }): Promise<SaveResult> {
   const user = await getCurrentUser();
-  if (!user) return { ok: false, error: "Please sign in again." };
+  if (!user) return { ok: false, error: "Volvé a iniciar sesión." };
 
   const parsed = predictionInputSchema.safeParse(input);
   if (!parsed.success) {
     return {
       ok: false,
-      error: parsed.error.issues[0]?.message ?? "Invalid prediction",
+      error: parsed.error.issues[0]?.message ?? "Pronóstico inválido",
     };
   }
   const { matchId, homeGoals, awayGoals } = parsed.data;
@@ -31,11 +31,11 @@ export async function savePredictionAction(input: {
   const match = await db.query.matches.findFirst({
     where: eq(matches.id, matchId),
   });
-  if (!match) return { ok: false, error: "Match not found." };
+  if (!match) return { ok: false, error: "Partido no encontrado." };
 
   // Lock check — predictions editable only until kickoff.
   if (Date.now() >= match.kickoffAt.getTime()) {
-    return { ok: false, error: "This match is locked." };
+    return { ok: false, error: "Este partido está cerrado." };
   }
 
   await db

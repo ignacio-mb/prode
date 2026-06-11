@@ -3,793 +3,793 @@
     "matchNumber": 1,
     "stage": "group",
     "groupLetter": "A",
-    "homeCode": "USA",
-    "awayCode": "WAL",
+    "homeCode": "MEX",
+    "awayCode": "RSA",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-11T12:00:00-06:00",
-    "venue": "Estadio Azteca, Mexico City"
+    "kickoffAt": "2026-06-11T13:00:00-06:00",
+    "venue": "Mexico City"
   },
   {
     "matchNumber": 2,
     "stage": "group",
     "groupLetter": "A",
-    "homeCode": "PAR",
-    "awayCode": "IRN",
+    "homeCode": "KOR",
+    "awayCode": "CZE",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-11T15:00:00-04:00",
-    "venue": "MetLife Stadium, New York/New Jersey"
+    "kickoffAt": "2026-06-11T20:00:00-06:00",
+    "venue": "Guadalajara (Zapopan)"
   },
   {
     "matchNumber": 3,
     "stage": "group",
-    "groupLetter": "B",
-    "homeCode": "MEX",
-    "awayCode": "NOR",
+    "groupLetter": "A",
+    "homeCode": "CZE",
+    "awayCode": "RSA",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-11T18:00:00-07:00",
-    "venue": "SoFi Stadium, Los Angeles"
+    "kickoffAt": "2026-06-18T12:00:00-04:00",
+    "venue": "Atlanta"
   },
   {
     "matchNumber": 4,
     "stage": "group",
-    "groupLetter": "B",
-    "homeCode": "EGY",
-    "awayCode": "AUS",
+    "groupLetter": "A",
+    "homeCode": "MEX",
+    "awayCode": "KOR",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-11T21:00:00-05:00",
-    "venue": "AT&T Stadium, Dallas"
+    "kickoffAt": "2026-06-18T19:00:00-06:00",
+    "venue": "Guadalajara (Zapopan)"
   },
   {
     "matchNumber": 5,
     "stage": "group",
-    "groupLetter": "C",
-    "homeCode": "CAN",
-    "awayCode": "CRO",
+    "groupLetter": "A",
+    "homeCode": "CZE",
+    "awayCode": "MEX",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-12T12:00:00-04:00",
-    "venue": "Mercedes-Benz Stadium, Atlanta"
+    "kickoffAt": "2026-06-24T19:00:00-06:00",
+    "venue": "Mexico City"
   },
   {
     "matchNumber": 6,
     "stage": "group",
-    "groupLetter": "C",
-    "homeCode": "KSA",
-    "awayCode": "PAN",
+    "groupLetter": "A",
+    "homeCode": "RSA",
+    "awayCode": "KOR",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-12T15:00:00-07:00",
-    "venue": "Lumen Field, Seattle"
+    "kickoffAt": "2026-06-24T19:00:00-06:00",
+    "venue": "Monterrey (Guadalupe)"
   },
   {
     "matchNumber": 7,
     "stage": "group",
-    "groupLetter": "D",
-    "homeCode": "ARG",
-    "awayCode": "DEN",
+    "groupLetter": "B",
+    "homeCode": "CAN",
+    "awayCode": "BIH",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-12T18:00:00-05:00",
-    "venue": "Arrowhead Stadium, Kansas City"
+    "kickoffAt": "2026-06-12T15:00:00-04:00",
+    "venue": "Toronto"
   },
   {
     "matchNumber": 8,
     "stage": "group",
-    "groupLetter": "D",
-    "homeCode": "NGA",
-    "awayCode": "CRC",
+    "groupLetter": "B",
+    "homeCode": "QAT",
+    "awayCode": "SUI",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-12T21:00:00-04:00",
-    "venue": "Hard Rock Stadium, Miami"
+    "kickoffAt": "2026-06-13T12:00:00-07:00",
+    "venue": "San Francisco Bay Area (Santa Clara)"
   },
   {
     "matchNumber": 9,
     "stage": "group",
-    "groupLetter": "E",
-    "homeCode": "FRA",
-    "awayCode": "SUI",
+    "groupLetter": "B",
+    "homeCode": "SUI",
+    "awayCode": "BIH",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-13T12:00:00-04:00",
-    "venue": "Lincoln Financial Field, Philadelphia"
+    "kickoffAt": "2026-06-18T12:00:00-07:00",
+    "venue": "Los Angeles (Inglewood)"
   },
   {
     "matchNumber": 10,
     "stage": "group",
-    "groupLetter": "E",
-    "homeCode": "KOR",
-    "awayCode": "GHA",
+    "groupLetter": "B",
+    "homeCode": "CAN",
+    "awayCode": "QAT",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-13T15:00:00-07:00",
-    "venue": "Levi's Stadium, San Francisco Bay Area"
+    "kickoffAt": "2026-06-18T15:00:00-07:00",
+    "venue": "Vancouver"
   },
   {
     "matchNumber": 11,
     "stage": "group",
-    "groupLetter": "F",
-    "homeCode": "BRA",
-    "awayCode": "SRB",
+    "groupLetter": "B",
+    "homeCode": "SUI",
+    "awayCode": "CAN",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-13T18:00:00-05:00",
-    "venue": "NRG Stadium, Houston"
+    "kickoffAt": "2026-06-24T12:00:00-07:00",
+    "venue": "Vancouver"
   },
   {
     "matchNumber": 12,
     "stage": "group",
-    "groupLetter": "F",
-    "homeCode": "JPN",
-    "awayCode": "JAM",
+    "groupLetter": "B",
+    "homeCode": "BIH",
+    "awayCode": "QAT",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-13T21:00:00-04:00",
-    "venue": "Gillette Stadium, Boston"
+    "kickoffAt": "2026-06-24T12:00:00-07:00",
+    "venue": "Seattle"
   },
   {
     "matchNumber": 13,
     "stage": "group",
-    "groupLetter": "G",
-    "homeCode": "ENG",
-    "awayCode": "SEN",
+    "groupLetter": "C",
+    "homeCode": "BRA",
+    "awayCode": "MAR",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-14T12:00:00-04:00",
-    "venue": "BMO Field, Toronto"
+    "kickoffAt": "2026-06-13T18:00:00-04:00",
+    "venue": "New York/New Jersey (East Rutherford)"
   },
   {
     "matchNumber": 14,
     "stage": "group",
-    "groupLetter": "G",
-    "homeCode": "ECU",
-    "awayCode": "NZL",
+    "groupLetter": "C",
+    "homeCode": "HAI",
+    "awayCode": "SCO",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-14T15:00:00-07:00",
-    "venue": "BC Place, Vancouver"
+    "kickoffAt": "2026-06-13T21:00:00-04:00",
+    "venue": "Boston (Foxborough)"
   },
   {
     "matchNumber": 15,
     "stage": "group",
-    "groupLetter": "H",
-    "homeCode": "ESP",
-    "awayCode": "AUT",
+    "groupLetter": "C",
+    "homeCode": "SCO",
+    "awayCode": "MAR",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-14T18:00:00-06:00",
-    "venue": "Estadio Akron, Guadalajara"
+    "kickoffAt": "2026-06-19T18:00:00-04:00",
+    "venue": "Boston (Foxborough)"
   },
   {
     "matchNumber": 16,
     "stage": "group",
-    "groupLetter": "H",
-    "homeCode": "CIV",
-    "awayCode": "QAT",
+    "groupLetter": "C",
+    "homeCode": "BRA",
+    "awayCode": "HAI",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-14T21:00:00-06:00",
-    "venue": "Estadio BBVA, Monterrey"
+    "kickoffAt": "2026-06-19T20:30:00-04:00",
+    "venue": "Philadelphia"
   },
   {
     "matchNumber": 17,
     "stage": "group",
-    "groupLetter": "I",
-    "homeCode": "POR",
-    "awayCode": "SWE",
+    "groupLetter": "C",
+    "homeCode": "SCO",
+    "awayCode": "BRA",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-15T12:00:00-06:00",
-    "venue": "Estadio Azteca, Mexico City"
+    "kickoffAt": "2026-06-24T18:00:00-04:00",
+    "venue": "Miami (Miami Gardens)"
   },
   {
     "matchNumber": 18,
     "stage": "group",
-    "groupLetter": "I",
-    "homeCode": "TUN",
-    "awayCode": "CHI",
+    "groupLetter": "C",
+    "homeCode": "MAR",
+    "awayCode": "HAI",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-15T15:00:00-04:00",
-    "venue": "MetLife Stadium, New York/New Jersey"
+    "kickoffAt": "2026-06-24T18:00:00-04:00",
+    "venue": "Atlanta"
   },
   {
     "matchNumber": 19,
     "stage": "group",
-    "groupLetter": "J",
-    "homeCode": "GER",
-    "awayCode": "COL",
-    "homeLabel": null,
-    "awayLabel": null,
-    "kickoffAt": "2026-06-15T18:00:00-07:00",
-    "venue": "SoFi Stadium, Los Angeles"
-  },
-  {
-    "matchNumber": 20,
-    "stage": "group",
-    "groupLetter": "J",
-    "homeCode": "CMR",
-    "awayCode": "PER",
-    "homeLabel": null,
-    "awayLabel": null,
-    "kickoffAt": "2026-06-15T21:00:00-05:00",
-    "venue": "AT&T Stadium, Dallas"
-  },
-  {
-    "matchNumber": 21,
-    "stage": "group",
-    "groupLetter": "K",
-    "homeCode": "NED",
-    "awayCode": "URU",
-    "homeLabel": null,
-    "awayLabel": null,
-    "kickoffAt": "2026-06-16T12:00:00-04:00",
-    "venue": "Mercedes-Benz Stadium, Atlanta"
-  },
-  {
-    "matchNumber": 22,
-    "stage": "group",
-    "groupLetter": "K",
-    "homeCode": "MAR",
-    "awayCode": "SCO",
-    "homeLabel": null,
-    "awayLabel": null,
-    "kickoffAt": "2026-06-16T15:00:00-07:00",
-    "venue": "Lumen Field, Seattle"
-  },
-  {
-    "matchNumber": 23,
-    "stage": "group",
-    "groupLetter": "L",
-    "homeCode": "BEL",
-    "awayCode": "TUR",
-    "homeLabel": null,
-    "awayLabel": null,
-    "kickoffAt": "2026-06-16T18:00:00-05:00",
-    "venue": "Arrowhead Stadium, Kansas City"
-  },
-  {
-    "matchNumber": 24,
-    "stage": "group",
-    "groupLetter": "L",
-    "homeCode": "ALG",
-    "awayCode": "UKR",
-    "homeLabel": null,
-    "awayLabel": null,
-    "kickoffAt": "2026-06-16T21:00:00-04:00",
-    "venue": "Hard Rock Stadium, Miami"
-  },
-  {
-    "matchNumber": 25,
-    "stage": "group",
-    "groupLetter": "A",
+    "groupLetter": "D",
     "homeCode": "USA",
     "awayCode": "PAR",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-17T12:00:00-04:00",
-    "venue": "Lincoln Financial Field, Philadelphia"
+    "kickoffAt": "2026-06-12T18:00:00-07:00",
+    "venue": "Los Angeles (Inglewood)"
+  },
+  {
+    "matchNumber": 20,
+    "stage": "group",
+    "groupLetter": "D",
+    "homeCode": "AUS",
+    "awayCode": "TUR",
+    "homeLabel": null,
+    "awayLabel": null,
+    "kickoffAt": "2026-06-13T21:00:00-07:00",
+    "venue": "Vancouver"
+  },
+  {
+    "matchNumber": 21,
+    "stage": "group",
+    "groupLetter": "D",
+    "homeCode": "USA",
+    "awayCode": "AUS",
+    "homeLabel": null,
+    "awayLabel": null,
+    "kickoffAt": "2026-06-19T12:00:00-07:00",
+    "venue": "Seattle"
+  },
+  {
+    "matchNumber": 22,
+    "stage": "group",
+    "groupLetter": "D",
+    "homeCode": "TUR",
+    "awayCode": "PAR",
+    "homeLabel": null,
+    "awayLabel": null,
+    "kickoffAt": "2026-06-19T20:00:00-07:00",
+    "venue": "San Francisco Bay Area (Santa Clara)"
+  },
+  {
+    "matchNumber": 23,
+    "stage": "group",
+    "groupLetter": "D",
+    "homeCode": "TUR",
+    "awayCode": "USA",
+    "homeLabel": null,
+    "awayLabel": null,
+    "kickoffAt": "2026-06-25T19:00:00-07:00",
+    "venue": "Los Angeles (Inglewood)"
+  },
+  {
+    "matchNumber": 24,
+    "stage": "group",
+    "groupLetter": "D",
+    "homeCode": "PAR",
+    "awayCode": "AUS",
+    "homeLabel": null,
+    "awayLabel": null,
+    "kickoffAt": "2026-06-25T19:00:00-07:00",
+    "venue": "San Francisco Bay Area (Santa Clara)"
+  },
+  {
+    "matchNumber": 25,
+    "stage": "group",
+    "groupLetter": "E",
+    "homeCode": "GER",
+    "awayCode": "CUW",
+    "homeLabel": null,
+    "awayLabel": null,
+    "kickoffAt": "2026-06-14T12:00:00-05:00",
+    "venue": "Houston"
   },
   {
     "matchNumber": 26,
     "stage": "group",
-    "groupLetter": "A",
-    "homeCode": "IRN",
-    "awayCode": "WAL",
+    "groupLetter": "E",
+    "homeCode": "CIV",
+    "awayCode": "ECU",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-17T15:00:00-07:00",
-    "venue": "Levi's Stadium, San Francisco Bay Area"
+    "kickoffAt": "2026-06-14T19:00:00-04:00",
+    "venue": "Philadelphia"
   },
   {
     "matchNumber": 27,
     "stage": "group",
-    "groupLetter": "B",
-    "homeCode": "MEX",
-    "awayCode": "EGY",
+    "groupLetter": "E",
+    "homeCode": "GER",
+    "awayCode": "CIV",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-17T18:00:00-05:00",
-    "venue": "NRG Stadium, Houston"
+    "kickoffAt": "2026-06-20T16:00:00-04:00",
+    "venue": "Toronto"
   },
   {
     "matchNumber": 28,
     "stage": "group",
-    "groupLetter": "B",
-    "homeCode": "AUS",
-    "awayCode": "NOR",
+    "groupLetter": "E",
+    "homeCode": "ECU",
+    "awayCode": "CUW",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-17T21:00:00-04:00",
-    "venue": "Gillette Stadium, Boston"
+    "kickoffAt": "2026-06-20T19:00:00-05:00",
+    "venue": "Kansas City"
   },
   {
     "matchNumber": 29,
     "stage": "group",
-    "groupLetter": "C",
-    "homeCode": "CAN",
-    "awayCode": "KSA",
+    "groupLetter": "E",
+    "homeCode": "CUW",
+    "awayCode": "CIV",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-18T12:00:00-04:00",
-    "venue": "BMO Field, Toronto"
+    "kickoffAt": "2026-06-25T16:00:00-04:00",
+    "venue": "Philadelphia"
   },
   {
     "matchNumber": 30,
     "stage": "group",
-    "groupLetter": "C",
-    "homeCode": "PAN",
-    "awayCode": "CRO",
+    "groupLetter": "E",
+    "homeCode": "ECU",
+    "awayCode": "GER",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-18T15:00:00-07:00",
-    "venue": "BC Place, Vancouver"
+    "kickoffAt": "2026-06-25T16:00:00-04:00",
+    "venue": "New York/New Jersey (East Rutherford)"
   },
   {
     "matchNumber": 31,
     "stage": "group",
-    "groupLetter": "D",
-    "homeCode": "ARG",
-    "awayCode": "NGA",
+    "groupLetter": "F",
+    "homeCode": "NED",
+    "awayCode": "JPN",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-18T18:00:00-06:00",
-    "venue": "Estadio Akron, Guadalajara"
+    "kickoffAt": "2026-06-14T15:00:00-05:00",
+    "venue": "Dallas (Arlington)"
   },
   {
     "matchNumber": 32,
     "stage": "group",
-    "groupLetter": "D",
-    "homeCode": "CRC",
-    "awayCode": "DEN",
+    "groupLetter": "F",
+    "homeCode": "SWE",
+    "awayCode": "TUN",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-18T21:00:00-06:00",
-    "venue": "Estadio BBVA, Monterrey"
+    "kickoffAt": "2026-06-14T20:00:00-06:00",
+    "venue": "Monterrey (Guadalupe)"
   },
   {
     "matchNumber": 33,
     "stage": "group",
-    "groupLetter": "E",
-    "homeCode": "FRA",
-    "awayCode": "KOR",
+    "groupLetter": "F",
+    "homeCode": "NED",
+    "awayCode": "SWE",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-19T12:00:00-06:00",
-    "venue": "Estadio Azteca, Mexico City"
+    "kickoffAt": "2026-06-20T12:00:00-05:00",
+    "venue": "Houston"
   },
   {
     "matchNumber": 34,
     "stage": "group",
-    "groupLetter": "E",
-    "homeCode": "GHA",
-    "awayCode": "SUI",
+    "groupLetter": "F",
+    "homeCode": "TUN",
+    "awayCode": "JPN",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-19T15:00:00-04:00",
-    "venue": "MetLife Stadium, New York/New Jersey"
+    "kickoffAt": "2026-06-20T22:00:00-06:00",
+    "venue": "Monterrey (Guadalupe)"
   },
   {
     "matchNumber": 35,
     "stage": "group",
     "groupLetter": "F",
-    "homeCode": "BRA",
-    "awayCode": "JPN",
+    "homeCode": "JPN",
+    "awayCode": "SWE",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-19T18:00:00-07:00",
-    "venue": "SoFi Stadium, Los Angeles"
+    "kickoffAt": "2026-06-25T18:00:00-05:00",
+    "venue": "Dallas (Arlington)"
   },
   {
     "matchNumber": 36,
     "stage": "group",
     "groupLetter": "F",
-    "homeCode": "JAM",
-    "awayCode": "SRB",
+    "homeCode": "TUN",
+    "awayCode": "NED",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-19T21:00:00-05:00",
-    "venue": "AT&T Stadium, Dallas"
+    "kickoffAt": "2026-06-25T18:00:00-05:00",
+    "venue": "Kansas City"
   },
   {
     "matchNumber": 37,
     "stage": "group",
     "groupLetter": "G",
-    "homeCode": "ENG",
-    "awayCode": "ECU",
+    "homeCode": "BEL",
+    "awayCode": "EGY",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-20T12:00:00-04:00",
-    "venue": "Mercedes-Benz Stadium, Atlanta"
+    "kickoffAt": "2026-06-15T12:00:00-07:00",
+    "venue": "Seattle"
   },
   {
     "matchNumber": 38,
     "stage": "group",
     "groupLetter": "G",
-    "homeCode": "NZL",
-    "awayCode": "SEN",
+    "homeCode": "IRN",
+    "awayCode": "NZL",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-20T15:00:00-07:00",
-    "venue": "Lumen Field, Seattle"
+    "kickoffAt": "2026-06-15T18:00:00-07:00",
+    "venue": "Los Angeles (Inglewood)"
   },
   {
     "matchNumber": 39,
     "stage": "group",
-    "groupLetter": "H",
-    "homeCode": "ESP",
-    "awayCode": "CIV",
+    "groupLetter": "G",
+    "homeCode": "BEL",
+    "awayCode": "IRN",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-20T18:00:00-05:00",
-    "venue": "Arrowhead Stadium, Kansas City"
+    "kickoffAt": "2026-06-21T12:00:00-07:00",
+    "venue": "Los Angeles (Inglewood)"
   },
   {
     "matchNumber": 40,
     "stage": "group",
-    "groupLetter": "H",
-    "homeCode": "QAT",
-    "awayCode": "AUT",
+    "groupLetter": "G",
+    "homeCode": "NZL",
+    "awayCode": "EGY",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-20T21:00:00-04:00",
-    "venue": "Hard Rock Stadium, Miami"
+    "kickoffAt": "2026-06-21T18:00:00-07:00",
+    "venue": "Vancouver"
   },
   {
     "matchNumber": 41,
     "stage": "group",
-    "groupLetter": "I",
-    "homeCode": "POR",
-    "awayCode": "TUN",
+    "groupLetter": "G",
+    "homeCode": "EGY",
+    "awayCode": "IRN",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-21T12:00:00-04:00",
-    "venue": "Lincoln Financial Field, Philadelphia"
+    "kickoffAt": "2026-06-26T20:00:00-07:00",
+    "venue": "Seattle"
   },
   {
     "matchNumber": 42,
     "stage": "group",
-    "groupLetter": "I",
-    "homeCode": "CHI",
-    "awayCode": "SWE",
+    "groupLetter": "G",
+    "homeCode": "NZL",
+    "awayCode": "BEL",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-21T15:00:00-07:00",
-    "venue": "Levi's Stadium, San Francisco Bay Area"
+    "kickoffAt": "2026-06-26T20:00:00-07:00",
+    "venue": "Vancouver"
   },
   {
     "matchNumber": 43,
     "stage": "group",
-    "groupLetter": "J",
-    "homeCode": "GER",
-    "awayCode": "CMR",
+    "groupLetter": "H",
+    "homeCode": "ESP",
+    "awayCode": "CPV",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-21T18:00:00-05:00",
-    "venue": "NRG Stadium, Houston"
+    "kickoffAt": "2026-06-15T12:00:00-04:00",
+    "venue": "Atlanta"
   },
   {
     "matchNumber": 44,
     "stage": "group",
-    "groupLetter": "J",
-    "homeCode": "PER",
-    "awayCode": "COL",
+    "groupLetter": "H",
+    "homeCode": "KSA",
+    "awayCode": "URU",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-21T21:00:00-04:00",
-    "venue": "Gillette Stadium, Boston"
+    "kickoffAt": "2026-06-15T18:00:00-04:00",
+    "venue": "Miami (Miami Gardens)"
   },
   {
     "matchNumber": 45,
     "stage": "group",
-    "groupLetter": "K",
-    "homeCode": "NED",
-    "awayCode": "MAR",
+    "groupLetter": "H",
+    "homeCode": "ESP",
+    "awayCode": "KSA",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-22T12:00:00-04:00",
-    "venue": "BMO Field, Toronto"
+    "kickoffAt": "2026-06-21T12:00:00-04:00",
+    "venue": "Atlanta"
   },
   {
     "matchNumber": 46,
     "stage": "group",
-    "groupLetter": "K",
-    "homeCode": "SCO",
-    "awayCode": "URU",
+    "groupLetter": "H",
+    "homeCode": "URU",
+    "awayCode": "CPV",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-22T15:00:00-07:00",
-    "venue": "BC Place, Vancouver"
+    "kickoffAt": "2026-06-21T18:00:00-04:00",
+    "venue": "Miami (Miami Gardens)"
   },
   {
     "matchNumber": 47,
     "stage": "group",
-    "groupLetter": "L",
-    "homeCode": "BEL",
-    "awayCode": "ALG",
+    "groupLetter": "H",
+    "homeCode": "CPV",
+    "awayCode": "KSA",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-22T18:00:00-06:00",
-    "venue": "Estadio Akron, Guadalajara"
+    "kickoffAt": "2026-06-26T19:00:00-05:00",
+    "venue": "Houston"
   },
   {
     "matchNumber": 48,
     "stage": "group",
-    "groupLetter": "L",
-    "homeCode": "UKR",
-    "awayCode": "TUR",
+    "groupLetter": "H",
+    "homeCode": "URU",
+    "awayCode": "ESP",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-22T21:00:00-06:00",
-    "venue": "Estadio BBVA, Monterrey"
+    "kickoffAt": "2026-06-26T18:00:00-06:00",
+    "venue": "Guadalajara (Zapopan)"
   },
   {
     "matchNumber": 49,
     "stage": "group",
-    "groupLetter": "A",
-    "homeCode": "IRN",
-    "awayCode": "USA",
+    "groupLetter": "I",
+    "homeCode": "FRA",
+    "awayCode": "SEN",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-24T12:00:00-06:00",
-    "venue": "Estadio Azteca, Mexico City"
+    "kickoffAt": "2026-06-16T15:00:00-04:00",
+    "venue": "New York/New Jersey (East Rutherford)"
   },
   {
     "matchNumber": 50,
     "stage": "group",
-    "groupLetter": "A",
-    "homeCode": "WAL",
-    "awayCode": "PAR",
+    "groupLetter": "I",
+    "homeCode": "IRQ",
+    "awayCode": "NOR",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-24T15:00:00-04:00",
-    "venue": "MetLife Stadium, New York/New Jersey"
+    "kickoffAt": "2026-06-16T18:00:00-04:00",
+    "venue": "Boston (Foxborough)"
   },
   {
     "matchNumber": 51,
     "stage": "group",
-    "groupLetter": "B",
-    "homeCode": "AUS",
-    "awayCode": "MEX",
+    "groupLetter": "I",
+    "homeCode": "FRA",
+    "awayCode": "IRQ",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-24T18:00:00-07:00",
-    "venue": "SoFi Stadium, Los Angeles"
+    "kickoffAt": "2026-06-22T17:00:00-04:00",
+    "venue": "Philadelphia"
   },
   {
     "matchNumber": 52,
     "stage": "group",
-    "groupLetter": "B",
+    "groupLetter": "I",
     "homeCode": "NOR",
-    "awayCode": "EGY",
+    "awayCode": "SEN",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-24T21:00:00-05:00",
-    "venue": "AT&T Stadium, Dallas"
+    "kickoffAt": "2026-06-22T20:00:00-04:00",
+    "venue": "New York/New Jersey (East Rutherford)"
   },
   {
     "matchNumber": 53,
     "stage": "group",
-    "groupLetter": "C",
-    "homeCode": "PAN",
-    "awayCode": "CAN",
+    "groupLetter": "I",
+    "homeCode": "NOR",
+    "awayCode": "FRA",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-25T12:00:00-04:00",
-    "venue": "Mercedes-Benz Stadium, Atlanta"
+    "kickoffAt": "2026-06-26T15:00:00-04:00",
+    "venue": "Boston (Foxborough)"
   },
   {
     "matchNumber": 54,
     "stage": "group",
-    "groupLetter": "C",
-    "homeCode": "CRO",
-    "awayCode": "KSA",
+    "groupLetter": "I",
+    "homeCode": "SEN",
+    "awayCode": "IRQ",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-25T15:00:00-07:00",
-    "venue": "Lumen Field, Seattle"
+    "kickoffAt": "2026-06-26T15:00:00-04:00",
+    "venue": "Toronto"
   },
   {
     "matchNumber": 55,
     "stage": "group",
-    "groupLetter": "D",
-    "homeCode": "CRC",
-    "awayCode": "ARG",
+    "groupLetter": "J",
+    "homeCode": "ARG",
+    "awayCode": "ALG",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-25T18:00:00-05:00",
-    "venue": "Arrowhead Stadium, Kansas City"
+    "kickoffAt": "2026-06-16T20:00:00-05:00",
+    "venue": "Kansas City"
   },
   {
     "matchNumber": 56,
     "stage": "group",
-    "groupLetter": "D",
-    "homeCode": "DEN",
-    "awayCode": "NGA",
+    "groupLetter": "J",
+    "homeCode": "AUT",
+    "awayCode": "JOR",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-25T21:00:00-04:00",
-    "venue": "Hard Rock Stadium, Miami"
+    "kickoffAt": "2026-06-16T21:00:00-07:00",
+    "venue": "San Francisco Bay Area (Santa Clara)"
   },
   {
     "matchNumber": 57,
     "stage": "group",
-    "groupLetter": "E",
-    "homeCode": "GHA",
-    "awayCode": "FRA",
+    "groupLetter": "J",
+    "homeCode": "ARG",
+    "awayCode": "AUT",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-26T12:00:00-04:00",
-    "venue": "Lincoln Financial Field, Philadelphia"
+    "kickoffAt": "2026-06-22T12:00:00-05:00",
+    "venue": "Dallas (Arlington)"
   },
   {
     "matchNumber": 58,
     "stage": "group",
-    "groupLetter": "E",
-    "homeCode": "SUI",
-    "awayCode": "KOR",
+    "groupLetter": "J",
+    "homeCode": "JOR",
+    "awayCode": "ALG",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-26T15:00:00-07:00",
-    "venue": "Levi's Stadium, San Francisco Bay Area"
+    "kickoffAt": "2026-06-22T20:00:00-07:00",
+    "venue": "San Francisco Bay Area (Santa Clara)"
   },
   {
     "matchNumber": 59,
     "stage": "group",
-    "groupLetter": "F",
-    "homeCode": "JAM",
-    "awayCode": "BRA",
+    "groupLetter": "J",
+    "homeCode": "ALG",
+    "awayCode": "AUT",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-26T18:00:00-05:00",
-    "venue": "NRG Stadium, Houston"
+    "kickoffAt": "2026-06-27T21:00:00-05:00",
+    "venue": "Kansas City"
   },
   {
     "matchNumber": 60,
     "stage": "group",
-    "groupLetter": "F",
-    "homeCode": "SRB",
-    "awayCode": "JPN",
+    "groupLetter": "J",
+    "homeCode": "JOR",
+    "awayCode": "ARG",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-26T21:00:00-04:00",
-    "venue": "Gillette Stadium, Boston"
+    "kickoffAt": "2026-06-27T21:00:00-05:00",
+    "venue": "Dallas (Arlington)"
   },
   {
     "matchNumber": 61,
     "stage": "group",
-    "groupLetter": "G",
-    "homeCode": "NZL",
-    "awayCode": "ENG",
+    "groupLetter": "K",
+    "homeCode": "POR",
+    "awayCode": "COD",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-27T12:00:00-04:00",
-    "venue": "BMO Field, Toronto"
+    "kickoffAt": "2026-06-17T12:00:00-05:00",
+    "venue": "Houston"
   },
   {
     "matchNumber": 62,
     "stage": "group",
-    "groupLetter": "G",
-    "homeCode": "SEN",
-    "awayCode": "ECU",
+    "groupLetter": "K",
+    "homeCode": "UZB",
+    "awayCode": "COL",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-27T15:00:00-07:00",
-    "venue": "BC Place, Vancouver"
+    "kickoffAt": "2026-06-17T20:00:00-06:00",
+    "venue": "Mexico City"
   },
   {
     "matchNumber": 63,
     "stage": "group",
-    "groupLetter": "H",
-    "homeCode": "QAT",
-    "awayCode": "ESP",
+    "groupLetter": "K",
+    "homeCode": "POR",
+    "awayCode": "UZB",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-27T18:00:00-06:00",
-    "venue": "Estadio Akron, Guadalajara"
+    "kickoffAt": "2026-06-23T12:00:00-05:00",
+    "venue": "Houston"
   },
   {
     "matchNumber": 64,
     "stage": "group",
-    "groupLetter": "H",
-    "homeCode": "AUT",
-    "awayCode": "CIV",
+    "groupLetter": "K",
+    "homeCode": "COL",
+    "awayCode": "COD",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-27T21:00:00-06:00",
-    "venue": "Estadio BBVA, Monterrey"
+    "kickoffAt": "2026-06-23T20:00:00-06:00",
+    "venue": "Guadalajara (Zapopan)"
   },
   {
     "matchNumber": 65,
     "stage": "group",
-    "groupLetter": "I",
-    "homeCode": "CHI",
+    "groupLetter": "K",
+    "homeCode": "COL",
     "awayCode": "POR",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-28T12:00:00-06:00",
-    "venue": "Estadio Azteca, Mexico City"
+    "kickoffAt": "2026-06-27T19:30:00-04:00",
+    "venue": "Miami (Miami Gardens)"
   },
   {
     "matchNumber": 66,
     "stage": "group",
-    "groupLetter": "I",
-    "homeCode": "SWE",
-    "awayCode": "TUN",
+    "groupLetter": "K",
+    "homeCode": "COD",
+    "awayCode": "UZB",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-28T15:00:00-04:00",
-    "venue": "MetLife Stadium, New York/New Jersey"
+    "kickoffAt": "2026-06-27T19:30:00-04:00",
+    "venue": "Atlanta"
   },
   {
     "matchNumber": 67,
     "stage": "group",
-    "groupLetter": "J",
-    "homeCode": "PER",
-    "awayCode": "GER",
+    "groupLetter": "L",
+    "homeCode": "ENG",
+    "awayCode": "CRO",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-28T18:00:00-07:00",
-    "venue": "SoFi Stadium, Los Angeles"
+    "kickoffAt": "2026-06-17T15:00:00-05:00",
+    "venue": "Dallas (Arlington)"
   },
   {
     "matchNumber": 68,
     "stage": "group",
-    "groupLetter": "J",
-    "homeCode": "COL",
-    "awayCode": "CMR",
+    "groupLetter": "L",
+    "homeCode": "GHA",
+    "awayCode": "PAN",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-28T21:00:00-05:00",
-    "venue": "AT&T Stadium, Dallas"
+    "kickoffAt": "2026-06-17T19:00:00-04:00",
+    "venue": "Toronto"
   },
   {
     "matchNumber": 69,
     "stage": "group",
-    "groupLetter": "K",
-    "homeCode": "SCO",
-    "awayCode": "NED",
+    "groupLetter": "L",
+    "homeCode": "ENG",
+    "awayCode": "GHA",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-29T12:00:00-04:00",
-    "venue": "Mercedes-Benz Stadium, Atlanta"
+    "kickoffAt": "2026-06-23T16:00:00-04:00",
+    "venue": "Boston (Foxborough)"
   },
   {
     "matchNumber": 70,
     "stage": "group",
-    "groupLetter": "K",
-    "homeCode": "URU",
-    "awayCode": "MAR",
+    "groupLetter": "L",
+    "homeCode": "PAN",
+    "awayCode": "CRO",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-29T15:00:00-07:00",
-    "venue": "Lumen Field, Seattle"
+    "kickoffAt": "2026-06-23T19:00:00-04:00",
+    "venue": "Toronto"
   },
   {
     "matchNumber": 71,
     "stage": "group",
     "groupLetter": "L",
-    "homeCode": "UKR",
-    "awayCode": "BEL",
+    "homeCode": "PAN",
+    "awayCode": "ENG",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-29T18:00:00-05:00",
-    "venue": "Arrowhead Stadium, Kansas City"
+    "kickoffAt": "2026-06-27T17:00:00-04:00",
+    "venue": "New York/New Jersey (East Rutherford)"
   },
   {
     "matchNumber": 72,
     "stage": "group",
     "groupLetter": "L",
-    "homeCode": "TUR",
-    "awayCode": "ALG",
+    "homeCode": "CRO",
+    "awayCode": "GHA",
     "homeLabel": null,
     "awayLabel": null,
-    "kickoffAt": "2026-06-29T21:00:00-04:00",
-    "venue": "Hard Rock Stadium, Miami"
+    "kickoffAt": "2026-06-27T17:00:00-04:00",
+    "venue": "Philadelphia"
   },
   {
     "matchNumber": 73,
@@ -797,10 +797,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner Group A",
-    "awayLabel": "Runner-up Group E",
-    "kickoffAt": "2026-06-28T15:00:00-04:00",
-    "venue": "Lincoln Financial Field, Philadelphia"
+    "homeLabel": "2º Grupo A",
+    "awayLabel": "2º Grupo B",
+    "kickoffAt": "2026-06-28T12:00:00-07:00",
+    "venue": "Los Angeles (Inglewood)"
   },
   {
     "matchNumber": 74,
@@ -808,10 +808,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner Group B",
-    "awayLabel": "Runner-up Group F",
-    "kickoffAt": "2026-06-28T18:00:00-07:00",
-    "venue": "Levi's Stadium, San Francisco Bay Area"
+    "homeLabel": "Ganador Grupo E",
+    "awayLabel": "3º (A/B/C/D/F)",
+    "kickoffAt": "2026-06-29T16:30:00-04:00",
+    "venue": "Boston (Foxborough)"
   },
   {
     "matchNumber": 75,
@@ -819,10 +819,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner Group C",
-    "awayLabel": "Runner-up Group G",
-    "kickoffAt": "2026-06-29T15:00:00-05:00",
-    "venue": "NRG Stadium, Houston"
+    "homeLabel": "Ganador Grupo F",
+    "awayLabel": "2º Grupo C",
+    "kickoffAt": "2026-06-29T19:00:00-06:00",
+    "venue": "Monterrey (Guadalupe)"
   },
   {
     "matchNumber": 76,
@@ -830,10 +830,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner Group D",
-    "awayLabel": "Runner-up Group H",
-    "kickoffAt": "2026-06-29T18:00:00-04:00",
-    "venue": "Gillette Stadium, Boston"
+    "homeLabel": "Ganador Grupo C",
+    "awayLabel": "2º Grupo F",
+    "kickoffAt": "2026-06-29T12:00:00-05:00",
+    "venue": "Houston"
   },
   {
     "matchNumber": 77,
@@ -841,10 +841,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner Group E",
-    "awayLabel": "Runner-up Group I",
-    "kickoffAt": "2026-06-30T15:00:00-04:00",
-    "venue": "BMO Field, Toronto"
+    "homeLabel": "Ganador Grupo I",
+    "awayLabel": "3º (C/D/F/G/H)",
+    "kickoffAt": "2026-06-30T17:00:00-04:00",
+    "venue": "New York/New Jersey (East Rutherford)"
   },
   {
     "matchNumber": 78,
@@ -852,10 +852,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner Group F",
-    "awayLabel": "Runner-up Group J",
-    "kickoffAt": "2026-06-30T18:00:00-07:00",
-    "venue": "BC Place, Vancouver"
+    "homeLabel": "2º Grupo E",
+    "awayLabel": "2º Grupo I",
+    "kickoffAt": "2026-06-30T12:00:00-05:00",
+    "venue": "Dallas (Arlington)"
   },
   {
     "matchNumber": 79,
@@ -863,10 +863,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner Group G",
-    "awayLabel": "Runner-up Group K",
-    "kickoffAt": "2026-07-01T15:00:00-06:00",
-    "venue": "Estadio Akron, Guadalajara"
+    "homeLabel": "Ganador Grupo A",
+    "awayLabel": "3º (C/E/F/H/I)",
+    "kickoffAt": "2026-06-30T19:00:00-06:00",
+    "venue": "Mexico City"
   },
   {
     "matchNumber": 80,
@@ -874,10 +874,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner Group H",
-    "awayLabel": "Runner-up Group L",
-    "kickoffAt": "2026-07-01T18:00:00-06:00",
-    "venue": "Estadio BBVA, Monterrey"
+    "homeLabel": "Ganador Grupo L",
+    "awayLabel": "3º (E/H/I/J/K)",
+    "kickoffAt": "2026-07-01T12:00:00-04:00",
+    "venue": "Atlanta"
   },
   {
     "matchNumber": 81,
@@ -885,10 +885,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner Group I",
-    "awayLabel": "Best 3rd #1",
-    "kickoffAt": "2026-07-02T15:00:00-06:00",
-    "venue": "Estadio Azteca, Mexico City"
+    "homeLabel": "Ganador Grupo D",
+    "awayLabel": "3º (B/E/F/I/J)",
+    "kickoffAt": "2026-07-01T17:00:00-07:00",
+    "venue": "San Francisco Bay Area (Santa Clara)"
   },
   {
     "matchNumber": 82,
@@ -896,10 +896,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner Group J",
-    "awayLabel": "Best 3rd #2",
-    "kickoffAt": "2026-07-02T18:00:00-04:00",
-    "venue": "MetLife Stadium, New York/New Jersey"
+    "homeLabel": "Ganador Grupo G",
+    "awayLabel": "3º (A/E/H/I/J)",
+    "kickoffAt": "2026-07-01T13:00:00-07:00",
+    "venue": "Seattle"
   },
   {
     "matchNumber": 83,
@@ -907,10 +907,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner Group K",
-    "awayLabel": "Best 3rd #3",
-    "kickoffAt": "2026-07-03T15:00:00-07:00",
-    "venue": "SoFi Stadium, Los Angeles"
+    "homeLabel": "2º Grupo K",
+    "awayLabel": "2º Grupo L",
+    "kickoffAt": "2026-07-02T19:00:00-04:00",
+    "venue": "Toronto"
   },
   {
     "matchNumber": 84,
@@ -918,10 +918,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner Group L",
-    "awayLabel": "Best 3rd #4",
-    "kickoffAt": "2026-07-03T18:00:00-05:00",
-    "venue": "AT&T Stadium, Dallas"
+    "homeLabel": "Ganador Grupo H",
+    "awayLabel": "2º Grupo J",
+    "kickoffAt": "2026-07-02T12:00:00-07:00",
+    "venue": "Los Angeles (Inglewood)"
   },
   {
     "matchNumber": 85,
@@ -929,10 +929,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Runner-up Group A",
-    "awayLabel": "Best 3rd #5",
-    "kickoffAt": "2026-07-04T15:00:00-04:00",
-    "venue": "Mercedes-Benz Stadium, Atlanta"
+    "homeLabel": "Ganador Grupo B",
+    "awayLabel": "3º (E/F/G/I/J)",
+    "kickoffAt": "2026-07-02T20:00:00-07:00",
+    "venue": "Vancouver"
   },
   {
     "matchNumber": 86,
@@ -940,10 +940,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Runner-up Group B",
-    "awayLabel": "Best 3rd #6",
-    "kickoffAt": "2026-07-04T18:00:00-07:00",
-    "venue": "Lumen Field, Seattle"
+    "homeLabel": "Ganador Grupo J",
+    "awayLabel": "2º Grupo H",
+    "kickoffAt": "2026-07-03T18:00:00-04:00",
+    "venue": "Miami (Miami Gardens)"
   },
   {
     "matchNumber": 87,
@@ -951,10 +951,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Runner-up Group C",
-    "awayLabel": "Best 3rd #7",
-    "kickoffAt": "2026-07-05T15:00:00-05:00",
-    "venue": "Arrowhead Stadium, Kansas City"
+    "homeLabel": "Ganador Grupo K",
+    "awayLabel": "3º (D/E/I/J/L)",
+    "kickoffAt": "2026-07-03T20:30:00-05:00",
+    "venue": "Kansas City"
   },
   {
     "matchNumber": 88,
@@ -962,10 +962,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Runner-up Group D",
-    "awayLabel": "Best 3rd #8",
-    "kickoffAt": "2026-07-05T18:00:00-04:00",
-    "venue": "Hard Rock Stadium, Miami"
+    "homeLabel": "2º Grupo D",
+    "awayLabel": "2º Grupo G",
+    "kickoffAt": "2026-07-03T13:00:00-05:00",
+    "venue": "Dallas (Arlington)"
   },
   {
     "matchNumber": 89,
@@ -973,10 +973,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner of Match 73",
-    "awayLabel": "Winner of Match 74",
-    "kickoffAt": "2026-07-04T15:00:00-04:00",
-    "venue": "Lincoln Financial Field, Philadelphia"
+    "homeLabel": "Ganador del Partido 74",
+    "awayLabel": "Ganador del Partido 77",
+    "kickoffAt": "2026-07-04T17:00:00-04:00",
+    "venue": "Philadelphia"
   },
   {
     "matchNumber": 90,
@@ -984,10 +984,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner of Match 75",
-    "awayLabel": "Winner of Match 76",
-    "kickoffAt": "2026-07-04T18:00:00-07:00",
-    "venue": "Levi's Stadium, San Francisco Bay Area"
+    "homeLabel": "Ganador del Partido 73",
+    "awayLabel": "Ganador del Partido 75",
+    "kickoffAt": "2026-07-04T12:00:00-05:00",
+    "venue": "Houston"
   },
   {
     "matchNumber": 91,
@@ -995,10 +995,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner of Match 77",
-    "awayLabel": "Winner of Match 78",
-    "kickoffAt": "2026-07-05T15:00:00-05:00",
-    "venue": "NRG Stadium, Houston"
+    "homeLabel": "Ganador del Partido 76",
+    "awayLabel": "Ganador del Partido 78",
+    "kickoffAt": "2026-07-05T16:00:00-04:00",
+    "venue": "New York/New Jersey (East Rutherford)"
   },
   {
     "matchNumber": 92,
@@ -1006,10 +1006,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner of Match 79",
-    "awayLabel": "Winner of Match 80",
-    "kickoffAt": "2026-07-05T18:00:00-04:00",
-    "venue": "Gillette Stadium, Boston"
+    "homeLabel": "Ganador del Partido 79",
+    "awayLabel": "Ganador del Partido 80",
+    "kickoffAt": "2026-07-05T18:00:00-06:00",
+    "venue": "Mexico City"
   },
   {
     "matchNumber": 93,
@@ -1017,10 +1017,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner of Match 81",
-    "awayLabel": "Winner of Match 82",
-    "kickoffAt": "2026-07-06T15:00:00-04:00",
-    "venue": "BMO Field, Toronto"
+    "homeLabel": "Ganador del Partido 83",
+    "awayLabel": "Ganador del Partido 84",
+    "kickoffAt": "2026-07-06T14:00:00-05:00",
+    "venue": "Dallas (Arlington)"
   },
   {
     "matchNumber": 94,
@@ -1028,10 +1028,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner of Match 83",
-    "awayLabel": "Winner of Match 84",
-    "kickoffAt": "2026-07-06T18:00:00-07:00",
-    "venue": "BC Place, Vancouver"
+    "homeLabel": "Ganador del Partido 81",
+    "awayLabel": "Ganador del Partido 82",
+    "kickoffAt": "2026-07-06T17:00:00-07:00",
+    "venue": "Seattle"
   },
   {
     "matchNumber": 95,
@@ -1039,10 +1039,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner of Match 85",
-    "awayLabel": "Winner of Match 86",
-    "kickoffAt": "2026-07-07T15:00:00-06:00",
-    "venue": "Estadio Akron, Guadalajara"
+    "homeLabel": "Ganador del Partido 86",
+    "awayLabel": "Ganador del Partido 88",
+    "kickoffAt": "2026-07-07T12:00:00-04:00",
+    "venue": "Atlanta"
   },
   {
     "matchNumber": 96,
@@ -1050,10 +1050,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner of Match 87",
-    "awayLabel": "Winner of Match 88",
-    "kickoffAt": "2026-07-07T18:00:00-06:00",
-    "venue": "Estadio BBVA, Monterrey"
+    "homeLabel": "Ganador del Partido 85",
+    "awayLabel": "Ganador del Partido 87",
+    "kickoffAt": "2026-07-07T13:00:00-07:00",
+    "venue": "Vancouver"
   },
   {
     "matchNumber": 97,
@@ -1061,10 +1061,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner of Match 89",
-    "awayLabel": "Winner of Match 90",
-    "kickoffAt": "2026-07-09T15:00:00-06:00",
-    "venue": "Estadio Azteca, Mexico City"
+    "homeLabel": "Ganador del Partido 89",
+    "awayLabel": "Ganador del Partido 90",
+    "kickoffAt": "2026-07-09T16:00:00-04:00",
+    "venue": "Boston (Foxborough)"
   },
   {
     "matchNumber": 98,
@@ -1072,10 +1072,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner of Match 91",
-    "awayLabel": "Winner of Match 92",
-    "kickoffAt": "2026-07-09T18:00:00-04:00",
-    "venue": "MetLife Stadium, New York/New Jersey"
+    "homeLabel": "Ganador del Partido 93",
+    "awayLabel": "Ganador del Partido 94",
+    "kickoffAt": "2026-07-10T12:00:00-07:00",
+    "venue": "Los Angeles (Inglewood)"
   },
   {
     "matchNumber": 99,
@@ -1083,10 +1083,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner of Match 93",
-    "awayLabel": "Winner of Match 94",
-    "kickoffAt": "2026-07-10T15:00:00-07:00",
-    "venue": "SoFi Stadium, Los Angeles"
+    "homeLabel": "Ganador del Partido 91",
+    "awayLabel": "Ganador del Partido 92",
+    "kickoffAt": "2026-07-11T17:00:00-04:00",
+    "venue": "Miami (Miami Gardens)"
   },
   {
     "matchNumber": 100,
@@ -1094,10 +1094,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner of Match 95",
-    "awayLabel": "Winner of Match 96",
-    "kickoffAt": "2026-07-10T18:00:00-05:00",
-    "venue": "AT&T Stadium, Dallas"
+    "homeLabel": "Ganador del Partido 95",
+    "awayLabel": "Ganador del Partido 96",
+    "kickoffAt": "2026-07-11T20:00:00-05:00",
+    "venue": "Kansas City"
   },
   {
     "matchNumber": 101,
@@ -1105,10 +1105,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner of Match 97",
-    "awayLabel": "Winner of Match 98",
-    "kickoffAt": "2026-07-14T15:00:00-04:00",
-    "venue": "Mercedes-Benz Stadium, Atlanta"
+    "homeLabel": "Ganador del Partido 97",
+    "awayLabel": "Ganador del Partido 98",
+    "kickoffAt": "2026-07-14T14:00:00-05:00",
+    "venue": "Dallas (Arlington)"
   },
   {
     "matchNumber": 102,
@@ -1116,10 +1116,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner of Match 99",
-    "awayLabel": "Winner of Match 100",
-    "kickoffAt": "2026-07-14T18:00:00-07:00",
-    "venue": "Lumen Field, Seattle"
+    "homeLabel": "Ganador del Partido 99",
+    "awayLabel": "Ganador del Partido 100",
+    "kickoffAt": "2026-07-15T15:00:00-04:00",
+    "venue": "Atlanta"
   },
   {
     "matchNumber": 103,
@@ -1127,10 +1127,10 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Loser of Match 101",
-    "awayLabel": "Loser of Match 102",
-    "kickoffAt": "2026-07-18T15:00:00-05:00",
-    "venue": "Arrowhead Stadium, Kansas City"
+    "homeLabel": "Perdedor del Partido 101",
+    "awayLabel": "Perdedor del Partido 102",
+    "kickoffAt": "2026-07-18T17:00:00-04:00",
+    "venue": "Miami (Miami Gardens)"
   },
   {
     "matchNumber": 104,
@@ -1138,9 +1138,9 @@
     "groupLetter": null,
     "homeCode": null,
     "awayCode": null,
-    "homeLabel": "Winner of Match 101",
-    "awayLabel": "Winner of Match 102",
+    "homeLabel": "Ganador del Partido 101",
+    "awayLabel": "Ganador del Partido 102",
     "kickoffAt": "2026-07-19T15:00:00-04:00",
-    "venue": "Hard Rock Stadium, Miami"
+    "venue": "New York/New Jersey (East Rutherford)"
   }
 ]

@@ -20,10 +20,10 @@ export default async function MatchesPage() {
   return (
     <div className="space-y-4">
       <div className="flex items-baseline justify-between">
-        <h1 className="text-2xl font-extrabold tracking-tight">Matches</h1>
+        <h1 className="text-2xl font-extrabold tracking-tight">Partidos</h1>
         {open > 0 && (
           <span className="text-xs font-semibold text-primary">
-            {open} awaiting your pick
+            {open} para pronosticar
           </span>
         )}
       </div>

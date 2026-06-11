@@ -6,15 +6,13 @@ export default function NotFound() {
       <div className="text-6xl" aria-hidden>
         🥅
       </div>
-      <h1 className="text-2xl font-extrabold">Off target</h1>
-      <p className="text-sm text-muted-foreground">
-        That page doesn&apos;t exist.
-      </p>
+      <h1 className="text-2xl font-extrabold">Tiro desviado</h1>
+      <p className="text-sm text-muted-foreground">Esta página no existe.</p>
       <Link
         href="/matches"
         className="font-semibold text-primary hover:underline"
       >
-        Back to matches →
+        Volver a los partidos →
       </Link>
     </main>
   );

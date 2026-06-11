@@ -43,7 +43,7 @@ export function Countdown({
         )}
       >
         <Lock className="size-3.5" />
-        Locked
+        Cerrado
       </span>
     );
   }

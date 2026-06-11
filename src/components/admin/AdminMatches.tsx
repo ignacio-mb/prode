@@ -24,13 +24,13 @@ export interface AdminTeamOption {
 }
 
 const STAGE_FILTERS = [
-  { key: "all", label: "All" },
-  { key: "todo", label: "Needs result" },
-  { key: "group", label: "Groups" },
-  { key: "round_of_32", label: "R32" },
-  { key: "round_of_16", label: "R16" },
-  { key: "quarter_final", label: "QF" },
-  { key: "semi_final", label: "SF" },
+  { key: "all", label: "Todos" },
+  { key: "todo", label: "Falta resultado" },
+  { key: "group", label: "Grupos" },
+  { key: "round_of_32", label: "16avos" },
+  { key: "round_of_16", label: "8vos" },
+  { key: "quarter_final", label: "4tos" },
+  { key: "semi_final", label: "Semis" },
   { key: "final", label: "Final" },
 ] as const;
 
@@ -76,7 +76,7 @@ export function AdminMatches({
 
       {filtered.length === 0 ? (
         <p className="rounded-lg border bg-card p-6 text-center text-sm text-muted-foreground">
-          Nothing here.
+          Nada por acá.
         </p>
       ) : (
         <ul className="space-y-2">
@@ -112,8 +112,8 @@ function AdminMatchRow({
   const [pending, start] = useTransition();
 
   const isKnockout = match.groupLetter === null;
-  const homeName = match.homeTeam?.name ?? match.homeLabel ?? "TBD";
-  const awayName = match.awayTeam?.name ?? match.awayLabel ?? "TBD";
+  const homeName = match.homeTeam?.name ?? match.homeLabel ?? "Por definir";
+  const awayName = match.awayTeam?.name ?? match.awayLabel ?? "Por definir";
 
   function flash(text: string) {
     setMsg(text);
@@ -124,7 +124,7 @@ function AdminMatchRow({
     const h = Number(home);
     const a = Number(away);
     if (home === "" || away === "" || !Number.isInteger(h) || !Number.isInteger(a)) {
-      flash("Enter both scores");
+      flash("Cargá ambos resultados");
       return;
     }
     start(async () => {
@@ -133,7 +133,7 @@ function AdminMatchRow({
         homeScore: h,
         awayScore: a,
       });
-      flash(res.ok ? "Result saved ✓" : res.error);
+      flash(res.ok ? "Resultado guardado ✓" : res.error);
     });
   }
 
@@ -144,7 +144,7 @@ function AdminMatchRow({
         setHome("");
         setAway("");
       }
-      flash(res.ok ? "Cleared" : res.error);
+      flash(res.ok ? "Borrado" : res.error);
     });
   }
 
@@ -154,7 +154,7 @@ function AdminMatchRow({
         matchId: match.id,
         live: match.status !== "live",
       });
-      flash(res.ok ? "Updated" : res.error);
+      flash(res.ok ? "Actualizado" : res.error);
     });
   }
 
@@ -167,7 +167,7 @@ function AdminMatchRow({
         homeTeamId: nextHome,
         awayTeamId: nextAway,
       });
-      flash(res.ok ? "Teams set" : res.error);
+      flash(res.ok ? "Equipos asignados" : res.error);
     });
   }
 
@@ -177,11 +177,13 @@ function AdminMatchRow({
         <div className="flex items-center justify-between gap-2 text-[11px] text-muted-foreground">
           <span>
             #{match.matchNumber} ·{" "}
-            {match.groupLetter ? `Group ${match.groupLetter}` : match.stageLabel}
+            {match.groupLetter
+              ? `Grupo ${match.groupLetter}`
+              : match.stageLabel}
           </span>
           <span className="flex items-center gap-2">
             {match.status === "finished" && (
-              <Badge variant="success">Final</Badge>
+              <Badge variant="success">Finalizado</Badge>
             )}
             {match.status === "live" && (
               <Badge variant="live">● LIVE</Badge>
@@ -194,13 +196,13 @@ function AdminMatchRow({
         {isKnockout && (
           <div className="grid grid-cols-2 gap-2">
             <TeamSelect
-              label={match.homeLabel ?? "Home"}
+              label={match.homeLabel ?? "Local"}
               value={homeTeamId}
               teams={teams}
               onChange={(id) => assign(id, awayTeamId)}
             />
             <TeamSelect
-              label={match.awayLabel ?? "Away"}
+              label={match.awayLabel ?? "Visitante"}
               value={awayTeamId}
               teams={teams}
               onChange={(id) => assign(homeTeamId, id)}
@@ -254,7 +256,7 @@ function AdminMatchRow({
                 disabled={pending}
               >
                 <RotateCcw className="size-4" />
-                Clear
+                Borrar
               </Button>
             )}
             <Button size="sm" onClick={saveResult} disabled={pending}>
@@ -265,7 +267,7 @@ function AdminMatchRow({
               ) : (
                 <Save className="size-4" />
               )}
-              {match.status === "finished" ? "Update" : "Save"}
+              {match.status === "finished" ? "Actualizar" : "Guardar"}
             </Button>
           </div>
         </div>
@@ -295,7 +297,7 @@ function TeamSelect({
         onChange={(e) => onChange(e.target.value ? Number(e.target.value) : null)}
         className="h-9 w-full rounded-lg border border-input bg-card px-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
-        <option value="">— pick team —</option>
+        <option value="">— elegí equipo —</option>
         {teams.map((t) => (
           <option key={t.id} value={t.id}>
             {t.flagEmoji} {t.name}

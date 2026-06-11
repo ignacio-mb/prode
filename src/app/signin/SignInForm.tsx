@@ -18,7 +18,7 @@ function SubmitButton() {
       ) : (
         <ArrowRight className="size-4" />
       )}
-      {pending ? "Signing in…" : "Enter the pool"}
+      {pending ? "Ingresando…" : "Entrar al prode"}
     </Button>
   );
 }
@@ -58,8 +58,8 @@ export function SignInForm() {
       <Input
         name="name"
         autoComplete="nickname"
-        placeholder="Your name (e.g. Nacho)"
-        aria-label="Display name"
+        placeholder="Tu nombre (ej. Nacho)"
+        aria-label="Nombre"
         value={name}
         onChange={(e) => setName(e.target.value)}
         maxLength={24}
@@ -71,7 +71,7 @@ export function SignInForm() {
       )}
       <SubmitButton />
       <p className="text-center text-xs text-muted-foreground">
-        No password needed — names are trust-based within your group.
+        Sin contraseña — los nombres se basan en la confianza del grupo.
       </p>
     </form>
   );

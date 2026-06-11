@@ -11,9 +11,9 @@ import {
 import { cn } from "@/lib/utils";
 
 const ITEMS = [
-  { href: "/matches", label: "Matches", icon: CalendarDays },
-  { href: "/leaderboard", label: "Leaderboard", icon: Trophy },
-  { href: "/my-predictions", label: "My Picks", icon: ListChecks },
+  { href: "/matches", label: "Partidos", icon: CalendarDays },
+  { href: "/leaderboard", label: "Tabla", icon: Trophy },
+  { href: "/my-predictions", label: "Mis pronós", icon: ListChecks },
 ] as const;
 
 export function BottomNav({ isAdmin }: { isAdmin: boolean }) {
