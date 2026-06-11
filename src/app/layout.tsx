@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Splash } from "@/components/Splash";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -26,6 +27,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={inter.variable}>
       <body className="min-h-dvh font-sans">
+        <Splash />
         {/* Intentionally in English, per request. */}
         <div className="bg-primary px-4 py-1 text-center text-[11px] font-bold uppercase tracking-wide text-primary-foreground">
           made for Lo Ganter. Navita, Benja y Weke se la comen
