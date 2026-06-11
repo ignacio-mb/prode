@@ -28,7 +28,7 @@ export default function RootLayout({
       <body className="min-h-dvh font-sans">
         {/* Intentionally in English, per request. */}
         <div className="bg-primary px-4 py-1 text-center text-[11px] font-bold uppercase tracking-wide text-primary-foreground">
-          made for Lo Ganter. Navita y Weke se la comen
+          made for Lo Ganter. Navita, Benja y Weke se la comen
         </div>
         {children}
       </body>
