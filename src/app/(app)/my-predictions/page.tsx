@@ -2,7 +2,8 @@ import Link from "next/link";
 import { ChevronRight, ListChecks, Trophy } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { requireUser } from "@/lib/auth";
+import { redirect } from "next/navigation";
+import { getCurrentUser } from "@/lib/auth";
 import { getMyPredictions } from "@/lib/queries";
 import { STAGE_LABELS, formatKickoff } from "@/lib/format";
 import { scoreKind } from "@/lib/scoring";
@@ -11,7 +12,8 @@ import { cn } from "@/lib/utils";
 export const dynamic = "force-dynamic";
 
 export default async function MyPredictionsPage() {
-  const user = await requireUser();
+  const user = await getCurrentUser();
+  if (!user) redirect("/signin");
   const rows = await getMyPredictions(user.id);
 
   const finished = rows.filter(
