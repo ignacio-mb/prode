@@ -46,6 +46,23 @@ export function dayKey(date: Date): string {
   }).format(date);
 }
 
+/** Calendar-tile parts for a day chip (Argentina time): { weekday, day, month }. */
+export function dayChipParts(date: Date): {
+  weekday: string;
+  day: string;
+  month: string;
+} {
+  const part = (opts: Intl.DateTimeFormatOptions) =>
+    new Intl.DateTimeFormat(LOCALE, { timeZone: TIME_ZONE, ...opts }).format(
+      date,
+    );
+  return {
+    weekday: part({ weekday: "short" }),
+    day: part({ day: "numeric" }),
+    month: part({ month: "short" }),
+  };
+}
+
 export function isLocked(kickoffAt: Date, now: Date = new Date()): boolean {
   return now.getTime() >= kickoffAt.getTime();
 }
