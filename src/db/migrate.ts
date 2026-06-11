@@ -2,6 +2,7 @@ import "dotenv/config";
 import { drizzle } from "drizzle-orm/postgres-js";
 import { migrate } from "drizzle-orm/postgres-js/migrator";
 import postgres from "postgres";
+import { getPostgresOptions } from "./connection";
 
 async function main() {
   const connectionString = process.env.DATABASE_URL;
@@ -9,17 +10,9 @@ async function main() {
     throw new Error("DATABASE_URL is not set.");
   }
 
-  const sslMode = process.env.DATABASE_SSL as
-    | "require"
-    | "prefer"
-    | "allow"
-    | undefined;
-
-  // A dedicated single-connection client for migrations.
-  const client = postgres(connectionString, {
-    max: 1,
-    ...(sslMode ? { ssl: sslMode } : {}),
-  });
+  // A dedicated single-connection client for migrations (Supabase pooler /
+  // SSL handled by the shared options helper).
+  const client = postgres(connectionString, getPostgresOptions(1));
 
   const db = drizzle(client);
 

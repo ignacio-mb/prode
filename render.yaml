@@ -1,17 +1,13 @@
-# Render Blueprint — one managed Postgres + the Next.js web service.
+# Render Blueprint — Next.js web service backed by an external Supabase Postgres.
 # Deploy by pushing this repo to GitHub, then: Render Dashboard → New → Blueprint.
 #
 # Notes:
-# - We use Render's *internal* connection string (no SSL needed), so we do NOT
-#   set DATABASE_SSL. For external Postgres (Neon/Supabase) set DATABASE_SSL=require.
+# - The database lives on Supabase (free tier persists data; no 30-day deletion).
+#   Set DATABASE_URL in the Render dashboard to your Supabase *Session pooler*
+#   connection string (IPv4-compatible — Render can't reach Supabase's IPv6-only
+#   direct host). SSL is auto-enabled for supabase hosts.
 # - Free tier does NOT support preDeployCommand, so migrations + the idempotent
 #   seed run at the start of startCommand instead (safe to repeat on each boot).
-databases:
-  - name: prode-db
-    plan: free
-    databaseName: prode
-    user: prode
-
 services:
   - type: web
     name: prode
@@ -23,9 +19,7 @@ services:
     healthCheckPath: /api/health
     envVars:
       - key: DATABASE_URL
-        fromDatabase:
-          name: prode-db
-          property: connectionString
+        sync: false # paste your Supabase Session pooler connection string
       - key: ADMIN_NAMES
         sync: false # set your admin display name(s) in the dashboard
       - key: SESSION_SECRET
