@@ -1,0 +1,40 @@
+# Render Blueprint — one managed Postgres + the Next.js web service.
+# Deploy by pushing this repo to GitHub, then: Render Dashboard → New → Blueprint.
+#
+# Notes:
+# - We use Render's *internal* connection string (no SSL needed), so we do NOT
+#   set DATABASE_SSL. For external Postgres (Neon/Supabase) set DATABASE_SSL=require.
+# - Migrations + idempotent seed run in preDeployCommand (once per deploy).
+databases:
+  - name: prode-db
+    plan: free
+    databaseName: prode
+    user: prode
+
+services:
+  - type: web
+    name: prode
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install && npm run build
+    preDeployCommand: npm run db:migrate && npm run db:seed
+    startCommand: npm run start
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: prode-db
+          property: connectionString
+      - key: ADMIN_NAMES
+        sync: false # set your admin display name(s) in the dashboard
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: NEXT_PUBLIC_APP_URL
+        sync: false # set to your https://<service>.onrender.com URL after first deploy
+      - key: NODE_VERSION
+        value: "22.11.0"
+      # Ensure devDependencies (tsx, drizzle-kit) are installed so build +
+      # migrate + seed scripts can run on Render.
+      - key: NPM_CONFIG_PRODUCTION
+        value: "false"

@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 150 30% 98%;
+    --foreground: 160 25% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 160 25% 12%;
+
+    --primary: 158 64% 38%; /* pitch green */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 150 20% 94%;
+    --secondary-foreground: 160 25% 18%;
+
+    --muted: 150 16% 95%;
+    --muted-foreground: 160 10% 42%;
+
+    --accent: 38 92% 50%; /* trophy gold */
+    --accent-foreground: 30 40% 12%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 16% 88%;
+    --input: 150 16% 86%;
+    --ring: 158 64% 38%;
+
+    --radius: 0.85rem;
+  }
+
+  .dark {
+    --background: 160 28% 7%;
+    --foreground: 150 20% 96%;
+
+    --card: 160 24% 11%;
+    --card-foreground: 150 20% 96%;
+
+    --primary: 158 64% 44%;
+    --primary-foreground: 160 30% 8%;
+
+    --secondary: 160 18% 16%;
+    --secondary-foreground: 150 20% 92%;
+
+    --muted: 160 16% 16%;
+    --muted-foreground: 150 10% 62%;
+
+    --accent: 38 92% 55%;
+    --accent-foreground: 30 40% 10%;
+
+    --success: 142 65% 45%;
+    --success-foreground: 160 30% 8%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 160 16% 20%;
+    --input: 160 16% 22%;
+    --ring: 158 64% 44%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-image: radial-gradient(
+        hsl(var(--primary) / 0.05) 1px,
+        transparent 1px
+      ),
+      radial-gradient(hsl(var(--primary) / 0.05) 1px, transparent 1px);
+    background-size: 28px 28px;
+    background-position:
+      0 0,
+      14px 14px;
+  }
+}
+
+/* Hide number input spinners — we use custom steppers. */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Small confetti burst for an exact-score hit. */
+.confetti-piece {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  top: 0;
+  border-radius: 2px;
+  pointer-events: none;
+}

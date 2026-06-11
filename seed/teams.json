@@ -1,0 +1,61 @@
+[
+  { "name": "United States", "fifaCode": "USA", "flagEmoji": "🇺🇸", "groupLetter": "A" },
+  { "name": "Wales", "fifaCode": "WAL", "flagEmoji": "🏴󠁧󠁢󠁷󠁬󠁳󠁿", "groupLetter": "A" },
+  { "name": "Paraguay", "fifaCode": "PAR", "flagEmoji": "🇵🇾", "groupLetter": "A" },
+  { "name": "Iran", "fifaCode": "IRN", "flagEmoji": "🇮🇷", "groupLetter": "A" },
+
+  { "name": "Mexico", "fifaCode": "MEX", "flagEmoji": "🇲🇽", "groupLetter": "B" },
+  { "name": "Norway", "fifaCode": "NOR", "flagEmoji": "🇳🇴", "groupLetter": "B" },
+  { "name": "Egypt", "fifaCode": "EGY", "flagEmoji": "🇪🇬", "groupLetter": "B" },
+  { "name": "Australia", "fifaCode": "AUS", "flagEmoji": "🇦🇺", "groupLetter": "B" },
+
+  { "name": "Canada", "fifaCode": "CAN", "flagEmoji": "🇨🇦", "groupLetter": "C" },
+  { "name": "Croatia", "fifaCode": "CRO", "flagEmoji": "🇭🇷", "groupLetter": "C" },
+  { "name": "Saudi Arabia", "fifaCode": "KSA", "flagEmoji": "🇸🇦", "groupLetter": "C" },
+  { "name": "Panama", "fifaCode": "PAN", "flagEmoji": "🇵🇦", "groupLetter": "C" },
+
+  { "name": "Argentina", "fifaCode": "ARG", "flagEmoji": "🇦🇷", "groupLetter": "D" },
+  { "name": "Denmark", "fifaCode": "DEN", "flagEmoji": "🇩🇰", "groupLetter": "D" },
+  { "name": "Nigeria", "fifaCode": "NGA", "flagEmoji": "🇳🇬", "groupLetter": "D" },
+  { "name": "Costa Rica", "fifaCode": "CRC", "flagEmoji": "🇨🇷", "groupLetter": "D" },
+
+  { "name": "France", "fifaCode": "FRA", "flagEmoji": "🇫🇷", "groupLetter": "E" },
+  { "name": "Switzerland", "fifaCode": "SUI", "flagEmoji": "🇨🇭", "groupLetter": "E" },
+  { "name": "South Korea", "fifaCode": "KOR", "flagEmoji": "🇰🇷", "groupLetter": "E" },
+  { "name": "Ghana", "fifaCode": "GHA", "flagEmoji": "🇬🇭", "groupLetter": "E" },
+
+  { "name": "Brazil", "fifaCode": "BRA", "flagEmoji": "🇧🇷", "groupLetter": "F" },
+  { "name": "Serbia", "fifaCode": "SRB", "flagEmoji": "🇷🇸", "groupLetter": "F" },
+  { "name": "Japan", "fifaCode": "JPN", "flagEmoji": "🇯🇵", "groupLetter": "F" },
+  { "name": "Jamaica", "fifaCode": "JAM", "flagEmoji": "🇯🇲", "groupLetter": "F" },
+
+  { "name": "England", "fifaCode": "ENG", "flagEmoji": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "groupLetter": "G" },
+  { "name": "Senegal", "fifaCode": "SEN", "flagEmoji": "🇸🇳", "groupLetter": "G" },
+  { "name": "Ecuador", "fifaCode": "ECU", "flagEmoji": "🇪🇨", "groupLetter": "G" },
+  { "name": "New Zealand", "fifaCode": "NZL", "flagEmoji": "🇳🇿", "groupLetter": "G" },
+
+  { "name": "Spain", "fifaCode": "ESP", "flagEmoji": "🇪🇸", "groupLetter": "H" },
+  { "name": "Austria", "fifaCode": "AUT", "flagEmoji": "🇦🇹", "groupLetter": "H" },
+  { "name": "Ivory Coast", "fifaCode": "CIV", "flagEmoji": "🇨🇮", "groupLetter": "H" },
+  { "name": "Qatar", "fifaCode": "QAT", "flagEmoji": "🇶🇦", "groupLetter": "H" },
+
+  { "name": "Portugal", "fifaCode": "POR", "flagEmoji": "🇵🇹", "groupLetter": "I" },
+  { "name": "Sweden", "fifaCode": "SWE", "flagEmoji": "🇸🇪", "groupLetter": "I" },
+  { "name": "Tunisia", "fifaCode": "TUN", "flagEmoji": "🇹🇳", "groupLetter": "I" },
+  { "name": "Chile", "fifaCode": "CHI", "flagEmoji": "🇨🇱", "groupLetter": "I" },
+
+  { "name": "Germany", "fifaCode": "GER", "flagEmoji": "🇩🇪", "groupLetter": "J" },
+  { "name": "Colombia", "fifaCode": "COL", "flagEmoji": "🇨🇴", "groupLetter": "J" },
+  { "name": "Cameroon", "fifaCode": "CMR", "flagEmoji": "🇨🇲", "groupLetter": "J" },
+  { "name": "Peru", "fifaCode": "PER", "flagEmoji": "🇵🇪", "groupLetter": "J" },
+
+  { "name": "Netherlands", "fifaCode": "NED", "flagEmoji": "🇳🇱", "groupLetter": "K" },
+  { "name": "Uruguay", "fifaCode": "URU", "flagEmoji": "🇺🇾", "groupLetter": "K" },
+  { "name": "Morocco", "fifaCode": "MAR", "flagEmoji": "🇲🇦", "groupLetter": "K" },
+  { "name": "Scotland", "fifaCode": "SCO", "flagEmoji": "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "groupLetter": "K" },
+
+  { "name": "Belgium", "fifaCode": "BEL", "flagEmoji": "🇧🇪", "groupLetter": "L" },
+  { "name": "Turkey", "fifaCode": "TUR", "flagEmoji": "🇹🇷", "groupLetter": "L" },
+  { "name": "Algeria", "fifaCode": "ALG", "flagEmoji": "🇩🇿", "groupLetter": "L" },
+  { "name": "Ukraine", "fifaCode": "UKR", "flagEmoji": "🇺🇦", "groupLetter": "L" }
+]
