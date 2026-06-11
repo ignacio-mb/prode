@@ -25,6 +25,17 @@ import type { ClientMatch, ClientTeam } from "./types";
 
 const MAX_GOALS = 30;
 
+/** Play the "fahhh" sound on a successful submit. Fails silently if blocked. */
+function playFahhh() {
+  try {
+    const audio = new Audio("/sounds/fahhh.mp3");
+    audio.volume = 0.7;
+    void audio.play().catch(() => {});
+  } catch {
+    /* no-op */
+  }
+}
+
 function TeamSide({
   team,
   label,
@@ -167,6 +178,7 @@ export function MatchCard({
         setSaved(optimistic);
         setTouched(false);
         setConfetti((c) => c + 1);
+        playFahhh();
       } else {
         setError(res.error);
       }
